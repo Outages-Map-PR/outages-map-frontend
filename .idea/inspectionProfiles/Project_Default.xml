@@ -1,0 +1,30 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="Newbee.lexer_Nbee.NUMBER" />
+          <option value="Newbee.lexer_Nbee.STRING" />
+          <option value="Newbee.lexer_Nbee.PLUS" />
+          <option value="Newbee.lexer_Nbee.TIMES" />
+          <option value="Newbee.lexer_Nbee.MINUS" />
+          <option value="Newbee.lexer_Nbee.DIVIDE" />
+          <option value="Newbee.lexer_Nbee.LPAREN" />
+          <option value="Newbee.lexer_Nbee.RPAREN" />
+          <option value="Newbee.lexer_Nbee.FOR" />
+          <option value="Newbee.lexer_Nbee.WORD" />
+          <option value="Newbee.lexer_Nbee.*" />
+          <option value="Newbee.parser_Nbee.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

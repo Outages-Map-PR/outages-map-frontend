@@ -1,4 +1,4 @@
-import React, {Component, useEffect} from "react";
+import React, {Component, useEffect, useState} from "react";
 import {Button, Container, Divider, Form, Grid, Header, Modal, Segment, Tab} from 'semantic-ui-react';
 // import * as UserData from "Database"; Look up how to get Data
 
@@ -6,28 +6,26 @@ import {Button, Container, Divider, Form, Grid, Header, Modal, Segment, Tab} fro
 //AUTH FUNCTION WITH DATABASE DATA FOR USER
 
 
-class Analytics extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: ""
-        }
-    }
-    render(){
-        useEffect(() => {
-            const loggedInUser = localStorage.getItem("user");
-            if(loggedInUser) {
-                const foundUser = JSON.parse(loggedInUser);
-                this.state.user.setState(foundUser);
+function Analytics() {
 
-            }
-        }, [])
+    const [user, setUser] = useState(-1)
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if(loggedInUser) {
+            const foundUser = JSON.parse(loggedInUser);
+            setUser(foundUser);
+
+        } else {
+            setUser(0)
+        }
+    }, [])
         return(
             <div><Header textAlign="center" size="huge" color="black">Analytics Page</Header>
             </div>
         )
     }
-}
+
 
 //CHANGE TO AUTH FUNCTION LATER
 export default Analytics;

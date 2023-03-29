@@ -8,24 +8,27 @@ import {Button, Container, Divider, Form, Grid, Header, Modal, Segment, Tab} fro
 
 function Home() {
 
-    const [user, setUser] = useState(-1)
+    const [user, setUser] = useState(localStorage.getItem('user'))
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
-        if(loggedInUser) {
-            const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
-
-        } else {
+        if(!loggedInUser) {
             setUser(0)
         }
     }, [])
+
+    const handleLogout = () => {
+        setUser();
+        localStorage.clear();
+    };
+
 
         return(
             <div>
                 <Header textAlign="center" size="huge" color="black">TEST, THIS IS A TEST</Header>
                 <p>{user}</p>
                 <iframe width={800} height={600} src="http://127.0.0.1:5000/components" />
+                <button onClick={handleLogout}>logout</button>
             </div>
         )
     }

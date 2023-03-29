@@ -8,6 +8,7 @@ import RecentReports from './Pages/Recent-Reports.js';
 import Analytics from './Pages/Analytics.js';
 import Report from './Pages/Make-a-Report.js';
 import Navbar from "./ComponentsCSS/Navbar.js";
+import LogIn from "./Pages/Log-In";
 
 const root = ReactDOM.createRoot( document.getElementById('root') );
 root.render(
@@ -19,6 +20,7 @@ root.render(
             <Route exact path="/recent-reports" element={<RecentReports/>} />
             <Route exact path="/analytics" element={<Analytics/>} />
             <Route exact path="/report" element={<Report/>} />
+            <Route exact path="/login" element={<LogIn/>} />
             {/* Add Routes HERE*/}
         </Routes>
     </BrowserRouter>

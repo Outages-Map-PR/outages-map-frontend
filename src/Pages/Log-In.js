@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {json} from "react-router-dom";
 import axios from "axios";
 
 const LogIn = () => {
@@ -8,23 +9,42 @@ const LogIn = () => {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const user = { "user_email": username,
-            "user_password": password };
-        // send the username and password to the server
-        const response = await axios.post(
-            "http://outagesdb-env.eba-vbt56isk.us-east-1.elasticbeanstalk.com/API/user/login",
-            user
-        );
-        // set the state of the user
-        setUser(response.data)
+        axios
+            .post(
+                'http://127.0.0.1:5000/API/user/login',
+
+                    {
+                        user_email: username,
+                        user_password: password
+                    },
+
+                {
+                    params: { 'api-version': '3.0' },
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                }
+            )
+            .then(function (response) {
+                //console.log(response.data[0]);
+                setUser(response.data)
+                //console.log(user)
+                localStorage.setItem('user', response.data)
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+//setUser(data)
         // store the user in localStorage
-        localStorage.setItem('user', response.data)
-        console.log(response.data)
+        //localStorage.setItem('user', data)
     };
 
 // if there's a user show the message below
     if (user) {
-        return <div>{username} is loggged in</div>;
+        return <div>
+
+            {username} is loggged in
+        </div>;
     }
 
     // if there's no user, show the login form

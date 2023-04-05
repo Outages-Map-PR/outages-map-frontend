@@ -1,5 +1,4 @@
 import React, {Component, useEffect, useState} from "react";
-import {Button, Container, Divider, Form, Grid, Header, Modal, Segment, Tab} from 'semantic-ui-react';
 import axios from "axios";
 
 // import * as UserData from "Database"; Look up how to get Data
@@ -23,7 +22,7 @@ function Report() {
         }
     }, [])
         return(
-            <div><Header textAlign="center" size="huge" color="black">Report Page</Header>
+            <div><header textAlign="center" size="huge" color="black">Report Page</header>
                 <p>{user}</p>
             </div>
         )

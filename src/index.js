@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {Route, BrowserRouter, Redirect, Routes, } from "react-router-dom";
-import './ComponentsCSS/index.css';
+import './ComponentsCSS/Css/index.css';
 import Home from './Pages/Home.js';
 import HistoricalData from './Pages/Historical-Data.js';
 import RecentReports from './Pages/Recent-Reports.js';

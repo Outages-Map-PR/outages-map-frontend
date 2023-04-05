@@ -23,7 +23,6 @@ function Report() {
     }, [])
         return(
             <div><header textAlign="center" size="huge" color="black">Report Page</header>
-                <p>{user}</p>
             </div>
         )
     }

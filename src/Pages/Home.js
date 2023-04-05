@@ -16,7 +16,7 @@ function Home() {
     }, [])
 
     const handleLogout = () => {
-        setUser();
+        setUser(0);
         localStorage.clear();
     };
 

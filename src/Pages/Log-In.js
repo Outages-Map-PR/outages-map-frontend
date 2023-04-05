@@ -12,7 +12,7 @@ const LogIn = () => {
         e.preventDefault();
         axios
             .post(
-                'http://127.0.0.1:5000/API/user/login',
+                'https://outages-db.herokuapp.com/API/user/login',
 
                     {
                         user_email: username,

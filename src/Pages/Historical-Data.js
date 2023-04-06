@@ -1,4 +1,5 @@
 import React, {Component, useEffect, useState} from "react";
+import axios from "axios";
 
 
 
@@ -8,6 +9,8 @@ import React, {Component, useEffect, useState} from "react";
 function HistoricalData() {
 
     const [user, setUser] = useState(-1)
+    const [outages, setOutages] = useState([])
+
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
@@ -18,11 +21,23 @@ function HistoricalData() {
         } else {
             setUser(0)
         }
+
+        axios.patch('http://127.0.0.1:5000/API/outagesmap')
+            .then(function (response) {
+                setOutages(response.data)
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
     }, [])
 
         return(
             <div>
                 <h1>Historical Data Placeholder</h1>
+                {outages.map((outage)=> {
+                    return (
+                        <p>{outage.outage_type}, {outage.outage_source}, {outage.outage_company}</p>
+                    )})}
             </div>
         )
 }

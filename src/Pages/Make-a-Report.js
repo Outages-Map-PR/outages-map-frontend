@@ -11,6 +11,7 @@ function Report() {
 
     const [user, setUser] = useState(-1)
 
+
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {

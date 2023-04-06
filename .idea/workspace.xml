@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00c64edf-a91d-4db4-8100-af104bfd7767.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/00c64edf-a91d-4db4-8100-af104bfd7767.xml" afterDir="false" />
+    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_29_23,_14_43_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_29_23__14_43__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Analytics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Historical-Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Historical-Data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Log-In.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Log-In.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Make-a-Report.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Make-a-Report.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Recent-Reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Recent-Reports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +41,13 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="main" />
+      </list>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Pages/Analytics.js" root0="FORCE_HIGHLIGHTING" />
@@ -110,8 +106,18 @@
       <workItem from="1679671196529" duration="3042000" />
       <workItem from="1679678921604" duration="136000" />
       <workItem from="1679679062174" duration="7717000" />
-      <workItem from="1680110717543" duration="24868000" />
+      <workItem from="1680110717543" duration="25735000" />
+      <workItem from="1680812498819" duration="65000" />
+      <workItem from="1680812720006" duration="3191000" />
     </task>
+    <task id="LOCAL-00001" summary="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar">
+      <created>1680729870708</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680729870708</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,13 +151,18 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized" />
+    <MESSAGE value="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar" />
+    <MESSAGE value="+Nav" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Nav" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/ComponentsCSS/Navbar.js</url>
-          <line>19</line>
-          <properties lambdaOrdinal="-1" />
+          <line>20</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

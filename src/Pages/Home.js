@@ -23,6 +23,7 @@ function Home() {
 
         return(
             <div>
+                <p>{user}</p>
                 <iframe width='1370rem' height='500rem' src="https://outages-db.herokuapp.com/map/home/none" />
             </div>
         )

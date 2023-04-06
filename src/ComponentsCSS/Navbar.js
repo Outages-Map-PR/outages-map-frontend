@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './/Css/Navbar.css';
 import {Link} from "react-router-dom";
 import {Button} from "./Button";
@@ -21,19 +21,58 @@ const Navbar = () => {
     const [nav, setNav] = useState(true);
 
     const handleNav = () => {
-      setNav(!nav)
+        setNav(!nav)
     }
-    const [button, setButton] = useState(true);
 
-    const showButton = () => {
-        if(window.innerWidth <= 960){
-            setButton(false);
-        } else{
-            setButton(true);
+    const [user, setUser] = useState(localStorage.getItem('user'))
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if(!loggedInUser) {
+            setUser(0)
         }
+    }, [])
+
+    const handleLogout = () => {
+        setUser(0);
+        localStorage.clear();
     };
 
-    window.addEventListener('resize', showButton);
+    let buttonUser1;
+    if (user != 0){
+        buttonUser1 = (<li className='nav-item'>
+            <Link to='/' className='btn-mobile' onClick={handleLogout()}>
+                <button
+                    className='btn--outline btn btn--medium'>Logout
+                </button>
+            </Link></li>)
+    } else{
+        buttonUser1 = <li className='nav-item'>
+            <Link to='/login' className='btn-mobile'>
+                <button
+                    className='btn--outline btn btn--medium'>Log In
+                </button>
+            </Link></li>
+    }
+    let buttonUser2;
+    if (user != 0){
+        buttonUser2 = (<li className='mobile-item'>
+            <Link to='/' className='nav-links-mobile' onClick={handleLogout}>
+                                <span>
+                                <HiOutlineLogout className='icon-mobile' size='25px'/> Logout
+                                </span>
+            </Link>
+        </li>)
+    } else {
+        buttonUser2 = (<li className='mobile-item'>
+            <Link to='/login' className='nav-links-mobile'>
+                                <span>
+                                <HiOutlineLogin className='icon-mobile' size='25px'/> Login
+                                </span>
+            </Link>
+        </li>)
+    }
+
 
     return(
         <navbar className="navbar">
@@ -61,12 +100,16 @@ const Navbar = () => {
                             Make a Report
                         </Link>
                     </li>
-                    <li className='nav-item'>{button && <Button buttonStyle='btn--outline'>Log In</Button>}</li>
+                    {buttonUser1}
                 </ul>
 
+
+
+                {/*Mobile Navbar*/}
                 <div className=' menu-icon' onClick={handleNav}>
                     {!nav ? <HiXMark/> : <HiMenuAlt2/>}
                 </div>
+
                 <div className={!nav ? ' nav-menu active' : 'nav-item nav-menu hidden'}>
                     <ul className={!nav ? 'nav-item active' : 'nav-item hidden'}>
                         <li className='mobile-item'>
@@ -102,13 +145,7 @@ const Navbar = () => {
                                       </span>
                             </Link>
                         </li>
-                        <li className='mobile-item'>
-                            <Link to='/' className='nav-links-mobile'>
-                                <span>
-                                <HiOutlineLogout className='icon-mobile' size='25px'/> Logout
-                                </span>
-                            </Link>
-                        </li>
+                        {buttonUser2}
                     </ul>
                 </div>
 

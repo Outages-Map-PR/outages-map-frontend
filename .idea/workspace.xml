@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_29_23,_14_43_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_29_23__14_43__Changes_.xml" beforeDir="false" />
+    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Big Nav Log in/out button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Log-In.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Log-In.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +103,7 @@
       <workItem from="1679679062174" duration="7717000" />
       <workItem from="1680110717543" duration="25735000" />
       <workItem from="1680812498819" duration="65000" />
-      <workItem from="1680812720006" duration="3191000" />
+      <workItem from="1680812720006" duration="3390000" />
     </task>
     <task id="LOCAL-00001" summary="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar">
       <created>1680729870708</created>
@@ -117,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680729870708</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="+Big Nav Log in/out button">
+      <created>1680816766079</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680816766079</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,17 +157,7 @@
     <MESSAGE value="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized" />
     <MESSAGE value="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar" />
     <MESSAGE value="+Nav" />
-    <option name="LAST_COMMIT_MESSAGE" value="+Nav" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/ComponentsCSS/Navbar.js</url>
-          <line>20</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="+Big Nav Log in/out button" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Big Nav Log in/out button" />
   </component>
 </project>

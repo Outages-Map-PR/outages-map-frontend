@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './/Css/Navbar.css';
 import {Link} from "react-router-dom";
 import {Button} from "./Button";
@@ -19,6 +19,39 @@ import {TbReportAnalytics} from 'react-icons/tb';
 //Navbar Component for the whole website. CSS file Needed.
 const Navbar = () => {
     const [nav, setNav] = useState(true);
+
+    const [user, setUser] = useState(localStorage.getItem('user'))
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if(!loggedInUser) {
+            setUser(0)
+        }
+    }, [])
+
+    const handleLogout = () => {
+        setUser(0);
+        localStorage.clear();
+    };
+
+    let buttonUser;
+    if (user != 0){
+        buttonUser = (<li className='mobile-item'>
+            <Link to='/' className='nav-links-mobile' onClick={handleLogout}>
+                                <span>
+                                <HiOutlineLogout className='icon-mobile' size='25px'/> Logout
+                                </span>
+            </Link>
+        </li>)
+    } else {
+        buttonUser = (<li className='mobile-item'>
+            <Link to='/login' className='nav-links-mobile'>
+                                <span>
+                                <HiOutlineLogin className='icon-mobile' size='25px'/> Login
+                                </span>
+            </Link>
+        </li>)
+    }
 
     const handleNav = () => {
       setNav(!nav)
@@ -102,13 +135,7 @@ const Navbar = () => {
                                       </span>
                             </Link>
                         </li>
-                        <li className='mobile-item'>
-                            <Link to='/' className='nav-links-mobile'>
-                                <span>
-                                <HiOutlineLogout className='icon-mobile' size='25px'/> Logout
-                                </span>
-                            </Link>
-                        </li>
+                        {buttonUser}
                     </ul>
                 </div>
 

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import {json} from "react-router-dom";
+import {json, Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 
 
 const LogIn = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState()
+    const navigate = useNavigate();
 
     const handleSubmit = async e => {
         e.preventDefault();
         axios
             .post(
                 'https://outages-db.herokuapp.com/API/user/login',
-
                     {
-                        user_email: username,
+                        user_email: email,
                         user_password: password
                     },
 
@@ -34,29 +34,31 @@ const LogIn = () => {
             })
             .catch(function (error) {
                 console.error(error);
+                setUser(0);
             });
+        navigate('/')
 //setUser(data)
         // store the user in localStorage
         //localStorage.setItem('user', data)
     };
 
 // if there's a user show the message below
-    if (user) {
-        return <div>
-
-            {username} is loggged in
-        </div>;
-    }
+//     if (user) {
+//         return <div>
+//
+//             {email} is loggged in
+//         </div>;
+//     }
 
     // if there's no user, show the login form
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username: </label>
+            <label htmlFor="username">User email: </label>
             <input
                 type="text"
-                value={username}
+                value={email}
                 placeholder="enter a username"
-                onChange={({ target }) => setUsername(target.value)}
+                onChange={({ target }) => setEmail(target.value)}
             />
             <div>
                 <label htmlFor="password">password: </label>

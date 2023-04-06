@@ -22,7 +22,7 @@ function HistoricalData() {
             setUser(0)
         }
 
-        axios.patch('http://127.0.0.1:5000/API/outagesmap')
+        axios.patch('https://outages-db.herokuapp.com/API/outagesmap')
             .then(function (response) {
                 setOutages(response.data)
             })

@@ -28,10 +28,10 @@ function RecentReports() {
         return(
             <div>
                 <header textAlign="center" size="huge" color="black">Recent Reports Page</header>
-                {outages.map((outage)=> {
-                    return (
-                        <p>{outage.outage_type}, {outage.outage_source}, {outage.outage_company}</p>
-                    )})}
+                {/*{outages.map((outage)=> {*/}
+                {/*    return (*/}
+                {/*        <p>{outage.outage_type}, {outage.outage_source}, {outage.outage_company}</p>*/}
+                {/*    )})}*/}
             </div>
         )
     }

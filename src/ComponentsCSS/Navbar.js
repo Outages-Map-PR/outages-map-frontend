@@ -43,7 +43,7 @@ const Navbar = () => {
     };
 
     let buttonUser1;
-    if (user != null && !user.startsWith("0")){
+    if (!user.startsWith("0")){
         buttonUser1 = (<li className='nav-item'>
             <Link to='/' className='btn-mobile' onClick={() => handleLogout()}>
                 <button
@@ -77,7 +77,7 @@ const Navbar = () => {
         </li>)
     }
 
-    console.log(user)
+    // console.log(user)
 
     return(
         <navbar className="navbar">

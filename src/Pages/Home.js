@@ -7,13 +7,15 @@ import axios from "axios";
 
 function Home() {
 
-    const [user, setUser] = useState(localStorage.getItem('user'))
+    const [user, setUser] = useState("0")
     const [outages, setOutages] = useState([])
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if(!loggedInUser) {
-            setUser(0)
+            setUser("0")
+        } else {
+            setUser(loggedInUser)
         }
         axios.options('https://outages-db.herokuapp.com/API/outagesmap')
             .then(function (response) {
@@ -25,11 +27,6 @@ function Home() {
     }, [])
 
 
-
-    const handleLogout = () => {
-        setUser(0);
-        localStorage.clear();
-    };
 
 
         return(

@@ -7,17 +7,15 @@ import axios from "axios";
 
 function RecentReports() {
 
-    const [user, setUser] = useState(-1)
+    const [user, setUser] = useState("0")
     const [outages, setOutages] = useState([])
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
-            const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
-
+            setUser(loggedInUser);
         } else {
-            setUser(0)
+            setUser("0")
         }
         axios.get('https://outages-db.herokuapp.com/API/outagesmap')
             .then(function (response) {

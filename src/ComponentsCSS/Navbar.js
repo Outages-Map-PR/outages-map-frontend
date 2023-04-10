@@ -23,24 +23,29 @@ const Navbar = () => {
         setNav(!nav)
     }
 
-    const [user, setUser] = useState(localStorage.getItem('user'))
+    const [user, setUser] = useState("0")
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
-        if(!loggedInUser) {
-            setUser(0)
+        //console.log(localStorage.localStorage.getItem("user"))
+        if(!loggedInUser){
+            setUser("0")
         }
-    }, [])
+        else {
+            setUser(loggedInUser)
+        }
+
+    }, [user])
 
     const handleLogout = () => {
-        setUser(0);
+        setUser("0");
         localStorage.clear();
     };
 
     let buttonUser1;
-    if (user != 0){
+    if (user != null && !user.startsWith("0")){
         buttonUser1 = (<li className='nav-item'>
-            <Link to='/' className='btn-mobile' onClick={handleLogout()}>
+            <Link to='/' className='btn-mobile' onClick={() => handleLogout()}>
                 <button
                     className='btn--outline btn btn--medium'>Logout
                 </button>
@@ -54,9 +59,9 @@ const Navbar = () => {
             </Link></li>
     }
     let buttonUser2;
-    if (user != 0){
+    if (!user.startsWith("0")){
         buttonUser2 = (<li className='mobile-item'>
-            <Link to='/' className='nav-links-mobile' onClick={handleLogout}>
+            <Link to='/' className='nav-links-mobile' onClick={() => handleLogout()}>
                                 <span>
                                 <HiOutlineLogout className='icon-mobile' size='25px'/> Logout
                                 </span>
@@ -72,6 +77,7 @@ const Navbar = () => {
         </li>)
     }
 
+    console.log(user)
 
     return(
         <navbar className="navbar">

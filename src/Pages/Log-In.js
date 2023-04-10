@@ -6,7 +6,7 @@ import axios from "axios";
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser] = useState()
+    const [user, setUser] = useState("0")
     const navigate = useNavigate();
 
     const handleSubmit = async e => {
@@ -34,7 +34,7 @@ const LogIn = () => {
             })
             .catch(function (error) {
                 console.error(error);
-                setUser(0);
+                setUser("0");
             });
         navigate('/')
 //setUser(data)

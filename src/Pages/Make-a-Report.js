@@ -9,21 +9,28 @@ import axios from "axios";
 
 function Report() {
 
-    const [user, setUser] = useState(-1)
+    const [user, setUser] = useState("0")
 
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
-            const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
-
+            setUser(loggedInUser);
         } else {
-            setUser(0)
+            setUser("0")
         }
     }, [])
         return(
-            <div><header textAlign="center" size="huge" color="black">Report Page</header>
+            <div>
+                {(user == 0 &&
+                        <header textAlign="center" size="huge" color="black">
+                            Please log in to make a report
+                        </header>)
+                || (user !== 0 &&
+                        <header>
+                            Make a Report
+                        </header>)
+                }
             </div>
         )
     }

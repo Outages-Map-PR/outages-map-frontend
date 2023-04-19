@@ -2,63 +2,144 @@ import React, {Component, useEffect, useState} from "react";
 import {Container} from "semantic-ui-react";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import axios from "axios";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 //AUTH FUNCTION WITH DATABASE DATA FOR USER
 
 const POWER = 'power'
 const WATER = 'water'
 const INTERNET = 'internet'
+const MONTH_OPTIONS = {
+    "01": "January",
+    "02": "February",
+    "03": "March",
+    "04": "April",
+    "05": "May",
+    "06": "June",
+    "07": "July",
+    "08": "August",
+    "09": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+}
+const YEAR_OPTIONS = {
+    "2022": "2022",
+    "2023": "2023"
+}
+const DAYS_IN_MONTHS = {
+    "01": 31,
+    "02": 28,  // assuming non-leap year
+    "03": 31,
+    "04": 30,
+    "05": 31,
+    "06": 30,
+    "07": 31,
+    "08": 31,
+    "09": 30,
+    "10": 31,
+    "11": 30,
+    "12": 31
+}
 
 function Analytics() {
 
     const [user, setUser] = useState(-1)
-    const [powerList, setPowerList] = useState([])
-    const [waterList, setWaterList] = useState([])
-    const [internetList, setInternetList] = useState([])
-    const [date, setDate] = useState('')
-    const [year, setYear] = useState('')
-    const [month, setMonth] = useState('')
+    const [year, setYear] = useState(new Date().getFullYear().toString())
+    const [month, setMonth] = useState(('0' + (new Date().getMonth() + 1)).slice(-2).toString())
+    const [stateLists, setStateLists] = useState({POWER: [], WATER: [], INTERNET: []})
 
-    const localUrl = 'http://127.0.0.1:5000/'
-    const servicesUrl = localUrl + 'API/analytics/all'
-    const powerUrl = localUrl + 'API/analytics/power'
-    const waterUrl = localUrl + 'API/analytics/water'
-    const internetUrl = localUrl + 'API/analytics/internet'
+    let powerList = []
+    let waterList = []
+    let internetList = []
+    let maxNum = 5
 
-    const monthOptions = {
-        "01": "January",
-        "02": "February",
-        "03": "March",
-        "04": "April",
-        "05": "May",
-        "06": "June",
-        "07": "July",
-        "08": "August",
-        "09": "September",
-        "10": "October",
-        "11": "November",
-        "12": "December"
-    }
-    const sortedMonthOptions = Object.entries(monthOptions)
+    const dbUrl = 'https://outages-db.herokuapp.com/'
+    const countUrl = dbUrl + 'API/analytics/count'
+
+    const sortedMonthOptions = Object.entries(MONTH_OPTIONS)
     .sort(([a], [b]) => a.localeCompare(b))
 
-    const yearOptions = {
-        "2022": "2022",
-        "2023": "2023"
-    }
-    const sortedYearOptions = Object.entries(yearOptions)
+    const sortedYearOptions = Object.entries(YEAR_OPTIONS)
     .sort(([a], [b]) => a.localeCompare(b))
 
     const handleYearChange = (event) => {
         let y = event.target.value
-        setYear(y);
-        setDate(`${y}-${month}`)
+        setYear(y)
     }
     
     const handleMonthChange = (event) => {
         let m = event.target.value
-        setMonth(m);
-        setDate(`${year}-${m}`)
+        setMonth(m)
+    }
+
+    const resetLists = () => {
+        powerList = []
+        waterList = []
+        internetList = []
+        let days = DAYS_IN_MONTHS[month]
+        for (let x = 1; x <= days; x++) {
+            let obj = {day: x.toString(), count: 0}
+            powerList.push(obj)
+            waterList.push(obj)
+            internetList.push(obj)
+        }
+    }
+
+    const populateLists = (paramDate) => {
+        resetLists()
+        let params = {
+            date: paramDate
+        }
+        // Load power, water, and internet dashboards
+        axios({
+            method: 'GET',
+            params: params,
+            url: countUrl
+        })
+        .then((res) => {
+            // Populate powerList, waterList, and internetList
+            let powerData
+            let waterData
+            let internetData
+
+            try {
+                powerData = res.data[POWER]
+                for (let x = 0; x < powerData.length; x++) {
+                    let day = powerData[x][0].split(" ")[1]
+                    powerList[parseInt(day)-1] = {day: day, count: powerData[x][1]}
+                    if (powerData[x][1] > maxNum)
+                        maxNum = powerData[x][1]
+                }
+            }
+            catch(e) {}
+
+            try {
+                waterData = res.data[WATER]
+                for (let x = 0; x < waterData.length; x++) {
+                    let day = waterData[x][0].split(" ")[1]
+                    waterList[parseInt(day)-1] = {day: day, count: waterData[x][1]}
+                    if (waterData[x][1] > maxNum)
+                        maxNum = waterData[x][1]
+                }
+            }
+            catch (e) {}
+
+            try {
+                internetData = res.data[INTERNET]
+                for (let x = 0; x < internetData.length; x++) {
+                    let day = internetData[x][0].split(" ")[1]
+                    internetList[parseInt(day)-1] = {day: day, count: internetData[x][1]}
+                    if (internetData[x][1] > maxNum)
+                        maxNum = internetData[x][1]
+                }
+            }
+            catch (e) {}
+
+            setStateLists((prev) => {return {... prev, POWER: powerList}})
+            setStateLists((prev) => {return {... prev, WATER: waterList}})
+            setStateLists((prev) => {return {... prev, INTERNET: internetList}})
+        })
     }
 
     useEffect(() => {
@@ -69,34 +150,12 @@ function Analytics() {
 
         } else {
             setUser(0)
-        }
-
-        // Set current date as default date
-        const currentDate = new Date()
-        const y = currentDate.getFullYear()
-        const m = ('0' + (currentDate.getMonth() + 1)).slice(-2)
-        const formattedDate = `${y}-${m}`
-        setYear(y.toString())
-        setMonth(m.toString())
-        setDate(formattedDate) 
-        console.log(formattedDate)
-
-        // Set params for axios calls
-        let params = {
-            date: formattedDate
-        }
-
-        // Load power, water, and internet dashboards
-        axios({
-            method: 'GET',
-            params: params,
-            url: servicesUrl
-        })
-        .then((res) => {
-            console.log(res)
-        })
-        
+        } 
     }, [])
+
+    useEffect(() => {
+        populateLists(`${year}-${month}`)
+    }, [month, year])
 
     return (      
         <Container style={{ height: 800 }}>
@@ -120,20 +179,40 @@ function Analytics() {
             <br/>
 
             <h2 style={{textAlign: 'center'}}>Power Outages</h2>
-            <BarChart width={730} height={250} data={powerList}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="interval"/>
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="count" fill="#8884d8" />
-            </BarChart>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <BarChart width={730} height={250} data={stateLists.POWER}>
+                    <XAxis dataKey="day" interval={0}/>
+                    <YAxis domain={[0, maxNum]}/>
+                    <Tooltip />
+                    <Bar dataKey="count" fill="#8884d8" barSize={15} name={"Number of Outages"}/>
+                </BarChart>
+            </div>
+            <h3 style={{textAlign: 'center'}}>Day</h3>
             <br/><br/>
 
             <h2 style={{textAlign: 'center'}}>Water Outages</h2>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <BarChart width={730} height={250} data={stateLists.WATER}>
+                    <XAxis dataKey="day" interval={0}/>
+                    <YAxis domain={[0, maxNum]}/>
+                    <Tooltip />
+                    <Bar dataKey="count" fill="#8884d8" barSize={15} name={"Number of Outages"}/>
+                </BarChart>
+            </div>
+            <h3 style={{textAlign: 'center'}}>Day</h3>
             <br/><br/>
 
             <h2 style={{textAlign: 'center'}}>Internet Outages</h2>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <BarChart width={730} height={250} data={stateLists.INTERNET}>
+                    <XAxis dataKey="day" interval={0}/>
+                    <YAxis domain={[0, maxNum]}/>
+                    <Tooltip />
+                    <Bar dataKey="count" fill="#8884d8" barSize={15} name={"Number of Outages"}/>
+                </BarChart>
+            </div>
+            <h3 style={{textAlign: 'center'}}>Day</h3>
+            <br/><br/>
         </Container>
     )
 }

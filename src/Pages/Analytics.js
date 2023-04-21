@@ -1,8 +1,8 @@
 import React, {Component, useEffect, useState} from "react";
-import {Container} from "semantic-ui-react";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import axios from "axios";
 import { wait } from "@testing-library/user-event/dist/utils";
+import { Box } from "@mui/material";
 
 //AUTH FUNCTION WITH DATABASE DATA FOR USER
 
@@ -158,7 +158,7 @@ function Analytics() {
     }, [month, year])
 
     return (      
-        <Container style={{ height: 800 }}>
+        <Box sx={{ height: 800 }}>
             <br/>
             <h1>Selected Year-Month &nbsp;&nbsp;
                 <select id="year" value={year} onChange={handleYearChange}>
@@ -213,7 +213,7 @@ function Analytics() {
             </div>
             <h3 style={{textAlign: 'center'}}>Day</h3>
             <br/><br/>
-        </Container>
+        </Box>
     )
 }
 

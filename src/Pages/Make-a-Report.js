@@ -9,6 +9,15 @@ import axios from "axios";
 
 function Report() {
 
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if(loggedInUser) {
+            setUser(loggedInUser);
+        } else {
+            setUser("0")
+        }
+    }, [])
+
     const getUserEmail = () => {
         let url = "https://outages-db.herokuapp.com/API/user/" + user
         axios.get(url)
@@ -34,7 +43,7 @@ function Report() {
 
         axios
             .post(
-                'https://outages-db.herokuapp.com/API/report/user',
+                'https://outages-db.herokuapp.com/API/userreport',
                 {
                     user_name: email,
                     report_address: address,
@@ -57,16 +66,6 @@ function Report() {
 
             });
     };
-
-
-    useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
-        if(loggedInUser) {
-            setUser(loggedInUser);
-        } else {
-            setUser("0")
-        }
-    }, [])
         return(
             <div>
                 {(user == 0 &&
@@ -82,14 +81,14 @@ function Report() {
                             <form onSubmit={handleSubmit}>
                                 <label htmlFor="address">Address: </label>
                                 <input
-                                type="text"
+                                type="address"
                                 value={address}
                                 placeholder="Enter your address"
                                 onChange={({ target }) => setAddress(target.value)}
                                 />
                                 <p />
                                 <label htmlFor="type">Type: </label>
-                                <select id="type" name="type" size="3"
+                                <select type="type" id="type" name="type" size="3"
                                         placeholder="Enter the type of the outage"
                                         onChange={({ target }) => setType(target.value)}>
                                     <option value="water">Water</option>
@@ -99,7 +98,7 @@ function Report() {
                                 <p />
                                 <label htmlFor="company">Company: </label>
                                 <input
-                                    type="text"
+                                    type="company"
                                     value={company}
                                     placeholder="Enter the company of the outage"
                                     onChange={({ target }) => setCompany(target.value)}

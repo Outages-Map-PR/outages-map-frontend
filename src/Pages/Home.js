@@ -31,7 +31,7 @@ function Home() {
 
         return(
             <div>
-                <iframe width='1370rem' height='500rem' src="https://outages-db.herokuapp.com/map/home/none" />
+                <iframe type="outage_map" width='1370rem' height='500rem' src="https://outages-db.herokuapp.com/map/home/none" />
                 {/*{outages.map((outage)=> {*/}
                 {/*    return (*/}
                 {/*        <p>{outage.outage_type}, {outage.outage_source}, {outage.outage_company}</p>*/}

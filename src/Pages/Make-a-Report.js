@@ -1,5 +1,6 @@
-import React, {Component, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {Box, Modal} from "@mui/material";
 
 // import * as UserData from "Database"; Look up how to get Data
 
@@ -9,25 +10,18 @@ import axios from "axios";
 
 function Report() {
 
-    useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
-        if(loggedInUser) {
-            setUser(loggedInUser);
-        } else {
-            setUser("0")
-        }
-    }, [])
-
     const getUserEmail = () => {
         let url = "https://outages-db.herokuapp.com/API/user/" + user
         axios.get(url)
             .then(function (response) {
-                setEmail(response.data.toString())
+                console.log(response.data)
+                setEmail(response.data.toString());
 
             })
             .catch(function (error){
                 console.log(error)
             })
+
     }
 
     const [user, setUser] = useState("0")
@@ -35,11 +29,34 @@ function Report() {
     const [type, setType] = useState("")
     const [company, setCompany] = useState("")
     const [email, setEmail] = useState(getUserEmail())
+    const [successfulReport, setSuccessfulReport] = useState(false)
+    const [failedReport, setFailedReport] = useState(false)
+    const handleCloseS = () => setSuccessfulReport(false);
+    const handleCloseF = () => setFailedReport(false);
+
+    useEffect(() => {
+        const loggedInUser = localStorage.getItem("user");
+        if(loggedInUser) {
+            setUser(loggedInUser);
+        } else {
+            setUser("0")
+        }
+
+
+    }, [])
+
+
+
 
 
 
     const handleSubmit = async e => {
         e.preventDefault();
+
+        if(type === "" || address === "" || company === ""){
+            setFailedReport(true)
+            return
+        }
 
         axios
             .post(
@@ -59,16 +76,18 @@ function Report() {
                 }
             )
             .then(function (response) {
-                console.log(response.data)
+                //console.log(response.data)
+                setSuccessfulReport(true)
             })
             .catch(function (error) {
                 console.error(error);
 
             });
     };
+
         return(
             <div>
-                {(user == 0 &&
+                {(user === 0 &&
                         <h1 textAlign="center" size="huge" color="black">
                             Please log in to make a report
                         </h1>
@@ -109,7 +128,36 @@ function Report() {
                         </div>
                     )
                 }
+                <Modal
+                    open={successfulReport}
+                    onClose={handleCloseS}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={
+                        {padding: '10px',
+                            backgroundColor: 'whitesmoke',
+                            maxWidth: '30vw'}}>
+                        <h3 style={{ color: 'green' }}>Report successfully created.</h3>
+                        <button onClick={handleCloseS}>Close</button>
+                    </Box>
+                </Modal>
+                <Modal
+                    open={failedReport}
+                    onClose={handleCloseF}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                >
+                    <Box sx={
+                        {padding: '10px',
+                            backgroundColor: 'whitesmoke',
+                            maxWidth: '30vw'}}>
+                        <h3 style={{ color: 'green' }}>Please ensure all fields are filled.</h3>
+                        <button onClick={handleCloseF}>Close</button>
+                    </Box>
+                </Modal>
             </div>
+
         )
     }
 

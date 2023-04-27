@@ -12,6 +12,7 @@ const SignUpForm = ({close}) => {
   const [showPassword, setShowPassword] = useState(false)
   const [passwordsMatch, setPasswordsMatch] = useState(true)
   const [successSignUp, setSuccessSignUp] = useState(false)
+  const [user, setUser] = useState(0)
 
   const dbUrl = 'https://outages-db.herokuapp.com/'
   const userApi = dbUrl + 'API/user'
@@ -38,8 +39,9 @@ const SignUpForm = ({close}) => {
       headers: {'Content-Type': 'application/json'},
       body: userData
     })
-    .then(() => {
+    .then((response) => {
       setSuccessSignUp(true)
+      localStorage.setItem('user', response.data) //cookie
     })
     .catch((e) => {
       console.log(e)
@@ -58,7 +60,7 @@ const SignUpForm = ({close}) => {
       {successSignUp ? 
         <>
           <h3 style={{ color: 'green' }}>User successfully created.</h3>
-          <button onClick={closeForm}>Close</button>
+          <button id="close" onClick={closeForm}>Close</button>
         </>
        :
         <Stack direction={'column'}>
@@ -66,7 +68,7 @@ const SignUpForm = ({close}) => {
             <label>
               Full Name:
               <input
-                type="text"
+                type="name"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
@@ -82,7 +84,7 @@ const SignUpForm = ({close}) => {
             <label>
               Phone:
               <input
-                type="text"
+                type="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 maxLength={10}
@@ -91,11 +93,13 @@ const SignUpForm = ({close}) => {
             <label>
               Password:
               <input
+                  id="password1"
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               <input
+
                 type="checkbox"
                 checked={showPassword}
                 onChange={() => setShowPassword(!showPassword)}
@@ -105,6 +109,7 @@ const SignUpForm = ({close}) => {
             <label>
               Confirm Password:
               <input
+                  id="password2"
                 type={showPassword ? 'text' : 'password'}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -113,7 +118,7 @@ const SignUpForm = ({close}) => {
             {!passwordsMatch && (
               <p style={{ color: 'red' }}>Passwords do not match</p>
             )}
-          <button onClick={handleSignUp}>Sign Up</button>
+          <button id="sign-up" onClick={handleSignUp}>Sign Up</button>
           <button onClick={closeForm}>Cancel</button>
       </Stack>}
       

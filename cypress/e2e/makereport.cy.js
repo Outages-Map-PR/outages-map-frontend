@@ -1,7 +1,19 @@
 import { slowCypressDown } from 'cypress-slow-down'
 slowCypressDown()
-describe('login', () => {
-    it('user should be able to make a report', () => {
+describe('Make a Report', () => {
+    it('user should be able to make a report (logged out)', () => {
+
+        cy.visit('http://localhost:3000/report')
+
+        cy.contains('h1', "Please log in to make a report").should('be.visible')
+
+        //
+        // // submit the form
+        // cy.get('button').contains('Sign in').click()
+        // cy.contains('button', 'Logout').should('be.visible')
+    })
+
+    it('user should be able to make a report (logged in)', () => {
         cy.visit('http://localhost:3000/login')
 
         // fill in the form
@@ -29,4 +41,6 @@ describe('login', () => {
         // cy.get('button').contains('Sign in').click()
         // cy.contains('button', 'Logout').should('be.visible')
     })
+
+
 })

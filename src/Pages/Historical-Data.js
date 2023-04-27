@@ -32,10 +32,10 @@ function HistoricalData() {
         return(
             <div>
                 <h1>Historical Data Placeholder</h1>
-                {outages.map((outage)=> {
-                    return (
-                        <p>{outage.outage_type}, {outage.outage_source}, {outage.outage_company}</p>
-                    )})}
+                {/*{outages.map((outage)=> {*/}
+                {/*    return (*/}
+                {/*        <p>{outage.outage_type}, {outage.outage_source}, {outage.outage_company}</p>*/}
+                {/*    )})}*/}
             </div>
         )
 }

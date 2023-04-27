@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import {json, Link, useNavigate} from "react-router-dom";
 import axios from "axios";
+import SignUpForm from "./SignUp";
+import { Box, Modal } from "@mui/material";
 
 
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState("0")
+    const [showSignUp, setShowSignUp] = useState(false)
     const navigate = useNavigate();
 
     const handleSubmit = async e => {
@@ -42,6 +45,12 @@ const LogIn = () => {
         //localStorage.setItem('user', data)
     };
 
+    const signupOpenClose = () => {
+        setShowSignUp((prevState) => {
+            return !prevState
+        })
+    }
+
 // if there's a user show the message below
 //     if (user) {
 //         return <div>
@@ -70,6 +79,15 @@ const LogIn = () => {
                 />
             </div>
             <button type="submit">Login</button>
+            <br />
+            <button type="button" onClick={signupOpenClose}>Sign Up</button>
+            <Modal open={showSignUp} onClose={signupOpenClose}
+            sx={{
+                top: '40%',
+                left: '35%'
+            }}>
+                <SignUpForm close={signupOpenClose}/>
+            </Modal>
         </form>
     );
 };

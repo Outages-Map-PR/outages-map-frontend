@@ -13,7 +13,7 @@ const SignUpForm = ({close}) => {
   const [passwordsMatch, setPasswordsMatch] = useState(true)
   const [successSignUp, setSuccessSignUp] = useState(false)
 
-  const dbUrl = 'http://127.0.0.1:5000/'
+  const dbUrl = 'https://outages-db.herokuapp.com/'
   const userApi = dbUrl + 'API/user'
 
   const handleSignUp = () => {

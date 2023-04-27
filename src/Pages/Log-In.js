@@ -64,7 +64,7 @@ const LogIn = () => {
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">User email: </label>
             <input
-                type="text"
+                type="username"
                 value={email}
                 placeholder="enter a username"
                 onChange={({ target }) => setEmail(target.value)}

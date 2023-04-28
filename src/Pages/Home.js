@@ -31,8 +31,9 @@ function Home() {
   const [outages, setOutages] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null)
-  const [checkFilter, setCheckFilter] = useState([])
+  const [checkFilter, setCheckFilter] = useState([ALL])
   const [showInternet, setShowInternet] = useState(false)
+  const [appliedFilter, setAppliedFilter] = useState(ALL)
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("user")
@@ -41,14 +42,6 @@ function Home() {
     } else {
       setUser(loggedInUser)
     }
-    axios
-      .options("https://outages-db.herokuapp.com/API/outagesmap")
-      .then(function (response) {
-        setOutages(response.data)
-      })
-      .catch(function (error) {
-        console.error(error)
-      })
   }, [])
 
     const showFilterHandler = (event) => {
@@ -112,11 +105,12 @@ function Home() {
     }
 
     const applyFilterHandler = (e) => {
-        // showFilterHandler(e)
         console.log(checkFilter)
         if (checkFilter.length === 0) {
             return
         }
+        setAppliedFilter(checkFilter.toString())
+        // showFilterHandler(e)
     }
 
   return (
@@ -125,7 +119,8 @@ function Home() {
         style={{ position: "absolute" }}
         width="1370rem"
         height="500rem"
-        src="https://outages-db.herokuapp.com/map/home/none"
+        // src="https://outages-db.herokuapp.com/map/home/{outagesFilters}"
+        src={`http://127.0.0.1:5000/map/home?filters=${appliedFilter}`}
       />
       <Button
         variant="contained"
@@ -246,7 +241,7 @@ function Home() {
                         (checkFilter.includes(INTERNET) &&
                         checkFilter.includes(LIBERTY))
                       }
-                      disabled={!checkFilter.includes(INTERNET)}
+                      disabled={!checkFilter.includes(INTERNET) && !checkFilter.includes(ALL)}
                       onChange={checkFilterHandler.bind(null, LIBERTY)}
                     />
                   }
@@ -260,7 +255,7 @@ function Home() {
                         (checkFilter.includes(INTERNET) &&
                         checkFilter.includes(CLARO))
                       }
-                      disabled={!checkFilter.includes(INTERNET)}
+                      disabled={!checkFilter.includes(INTERNET) && !checkFilter.includes(ALL)}
                       onChange={checkFilterHandler.bind(null, CLARO)}
                     />
                   }
@@ -274,7 +269,7 @@ function Home() {
                         (checkFilter.includes(INTERNET) &&
                         checkFilter.includes(ATNT))
                       }
-                      disabled={!checkFilter.includes(INTERNET)}
+                      disabled={!checkFilter.includes(INTERNET) && !checkFilter.includes(ALL)}
                       onChange={checkFilterHandler.bind(null, ATNT)}
                     />
                   }

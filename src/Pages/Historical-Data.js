@@ -48,6 +48,7 @@ function RecentReports() {
             }
             setSelectedItem(newItem)
             setCurrentOutages(currOut)
+            setPage(0)
         }        
     }
 

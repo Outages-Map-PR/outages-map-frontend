@@ -119,8 +119,7 @@ function Home() {
         style={{ position: "absolute" }}
         width="1370rem"
         height="500rem"
-        // src="https://outages-db.herokuapp.com/map/home/{outagesFilters}"
-        src={`http://127.0.0.1:5000/map/home?filters=${appliedFilter}`}
+        src={`https://outages-db.herokuapp.com/map/home?filters=${appliedFilter}`}
       />
       <Button
         variant="contained"

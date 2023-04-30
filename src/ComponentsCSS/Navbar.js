@@ -45,17 +45,12 @@ const Navbar = () => {
     let buttonUser1;
     if (!user.startsWith("0")){
         buttonUser1 = (<li className='nav-item'>
-            <Link to='/' className='btn-mobile' onClick={() => handleLogout()}>
-                <button
-                    className='btn--outline btn btn--medium'>Logout
-                </button>
+            <Link to='/' className=' nav-links-btn btn btn--medium' onClick={() => handleLogout()}>Logout
             </Link></li>)
     } else{
         buttonUser1 = <li className='nav-item'>
-            <Link to='/login' className='btn-mobile'>
-                <button
-                    className='btn--outline btn btn--medium'>Log In
-                </button>
+            <Link to='/login' className='nav-links-btn btn--medium btn--outline'>Log In
+
             </Link></li>
     }
     let buttonUser2;

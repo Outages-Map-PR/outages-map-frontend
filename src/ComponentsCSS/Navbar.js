@@ -58,7 +58,7 @@ const Navbar = () => {
         buttonUser2 = (<li className='mobile-item'>
             <Link to='/' className='nav-links-mobile' onClick={() => handleLogout()}>
                                 <span>
-                                <HiOutlineLogout className='icon-mobile' size='25px'/> Logout
+                                <HiOutlineLogout className='icon-mobile'/> Logout
                                 </span>
             </Link>
         </li>)
@@ -66,7 +66,7 @@ const Navbar = () => {
         buttonUser2 = (<li className='mobile-item'>
             <Link to='/login' className='nav-links-mobile'>
                                 <span>
-                                <HiOutlineLogin className='icon-mobile' size='25px'/> Login
+                                <HiOutlineLogin className='icon-mobile'/> Login
                                 </span>
             </Link>
         </li>)
@@ -78,8 +78,7 @@ const Navbar = () => {
         <navbar className="navbar">
             <div className="navbar-container">
                 <Link to="/" className="navbar-logo">OUTAGES PR</Link>
-
-                <ul className='nav-menu'>
+                <ul className='nav-menu max'>
                     <li className='nav-item'>
                         <Link to='/recent-reports' className='nav-links' >
                             Recent Reports
@@ -105,6 +104,8 @@ const Navbar = () => {
 
 
 
+
+
                 {/*Mobile Navbar*/}
                 <div className=' menu-icon' onClick={handleNav}>
                     {!nav ? <HiXMark/> : <HiMenuAlt2/>}
@@ -114,34 +115,34 @@ const Navbar = () => {
                     <ul className={!nav ? 'nav-item active' : 'nav-item hidden'}>
                         <li className='mobile-item'>
                             <Link to='/' className='nav-links-mobile' >
-                                <span><HiOutlineHome className='icon-mobile' size='25px'/> Home </span>
+                                <span><HiOutlineHome className='icon-mobile'/> Home </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
                             <Link to='/recent-reports' className='nav-links-mobile' >
                                 <span>
-                                    <TbReportAnalytics className='icon-mobile' size='25px'/> Recent Reports
+                                    <TbReportAnalytics className='icon-mobile'/> Recent Reports
                                 </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
                             <Link to='/historical-data' className='nav-links-mobile' >
                                  <span>
-                                     <HiOutlineFolderOpen className='icon-mobile' size='25px'/> Historical Data
+                                     <HiOutlineFolderOpen className='icon-mobile'/> Historical Data
                                       </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
                             <Link to='/analytics' className='nav-links-mobile' >
                                  <span>
-                                <HiOutlinePresentationChartBar className='icon-mobile' size='25px'/> Analytics
+                                <HiOutlinePresentationChartBar className='icon-mobile'/> Analytics
                                       </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
                             <Link to='/report' className='nav-links-mobile'>
                                  <span>
-                                <HiOutlineDocumentReport className='icon-mobile' size='25px'/> Make a Report
+                                <HiOutlineDocumentReport className='icon-mobile'/> Make a Report
                                       </span>
                             </Link>
                         </li>

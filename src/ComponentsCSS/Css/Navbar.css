@@ -58,7 +58,7 @@
 }
 
 .nav-links, .nav-links-btn {
-    color: black;
+    color: #F7F7F7;
     display: inline-flex;
     align-items: center;
     text-decoration: none;
@@ -100,10 +100,6 @@
 @media screen and (max-width: 600px) {
     .NavbarItems {
         position: relative;
-    }
-
-    .nav-menu.max{
-        display: none;
     }
 
     .nav-menu {
@@ -203,6 +199,7 @@
     }
 
     .icon-mobile{
-        margin-bottom: -.1em;
+        display: flex;
     }
+
 }

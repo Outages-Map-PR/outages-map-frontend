@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Big Nav Log in/out button">
-      <change afterPath="$PROJECT_DIR$/src/Pages/Css/LogIn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_55__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_57__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/loginform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Log-In.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Log-In.js" afterDir="false" />
-    </list>
+    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Log-In Css Completed&#10;-Removed Unused Components" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680816766079</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+Log-In Css Completed&#10;-Removed Unused Components">
+      <created>1682816408412</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682816408412</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +148,7 @@
     <MESSAGE value="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar" />
     <MESSAGE value="+Nav" />
     <MESSAGE value="+Big Nav Log in/out button" />
-    <option name="LAST_COMMIT_MESSAGE" value="+Big Nav Log in/out button" />
+    <MESSAGE value="+Log-In Css Completed&#10;-Removed Unused Components" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Log-In Css Completed&#10;-Removed Unused Components" />
   </component>
 </project>

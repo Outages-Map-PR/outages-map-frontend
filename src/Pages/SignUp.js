@@ -1,7 +1,24 @@
-import { Box, Stack } from '@mui/material';
-import React, { useState } from 'react';
-import axios from 'axios';
-import { json } from 'react-router-dom';
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControl,
+  IconButton,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
+import axios from "axios";
+import { json } from "react-router-dom";
+import { Check, CheckBox } from "@mui/icons-material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { IconBase } from "react-icons";
+
 
 const SignUpForm = ({close}) => {
   const [username, setUsername] = useState('')
@@ -14,25 +31,25 @@ const SignUpForm = ({close}) => {
   const [successSignUp, setSuccessSignUp] = useState(false)
   const [user, setUser] = useState(0)
 
-  const dbUrl = 'https://outages-db.herokuapp.com/'
-  const userApi = dbUrl + 'API/user'
+
+  const dbUrl = "https://outages-db.herokuapp.com/";
+  const userApi = dbUrl + "API/user";
 
   const handleSignUp = () => {
     if (password !== confirmPassword) {
-      setPasswordsMatch(false)
-      return
-    }
-    else {
-      setPasswordsMatch(true)
+      setPasswordsMatch(false);
+      return;
+    } else {
+      setPasswordsMatch(true);
     }
 
     let userData = JSON.stringify({
-      "user_email": email,
-      "user_password": password,
-      "user_name": username,
-      "user_type": "user",
-      "user_phone": phone
-    })
+      user_email: email,
+      user_password: password,
+      user_name: username,
+      user_type: "user",
+      user_phone: phone,
+    });
 
     fetch(userApi, {
       method: 'POST',
@@ -45,19 +62,18 @@ const SignUpForm = ({close}) => {
     })
     .catch((e) => {
       console.log(e)
-    })
+      });
   };
 
   const closeForm = () => {
-    close()
-  }
+    close();
+  };
 
   return (
-    <Box sx={
-        {padding: '10px',
-        backgroundColor: 'whitesmoke',
-        maxWidth: '30vw'}}>
-      {successSignUp ? 
+    <Box
+      sx={{ padding: "10px", backgroundColor: "whitesmoke", width: "25vw" }}
+    >
+      {successSignUp ? (
         <>
           <h3 style={{ color: 'green' }}>User successfully created.</h3>
           <button id="close" onClick={closeForm}>Close</button>
@@ -121,7 +137,6 @@ const SignUpForm = ({close}) => {
           <button id="sign-up" onClick={handleSignUp}>Sign Up</button>
           <button onClick={closeForm}>Cancel</button>
       </Stack>}
-      
     </Box>
   );
 };

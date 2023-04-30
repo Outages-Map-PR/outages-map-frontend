@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Big Nav Log in/out button">
+      <change afterPath="$PROJECT_DIR$/src/Pages/Css/LogIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_55__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_55__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_57__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_23__16_57__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Css/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Css/button.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ComponentsCSS/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ComponentsCSS/loginform.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Log-In.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Log-In.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -36,13 +45,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="main" />
-      </list>
-    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Pages/Analytics.js" root0="FORCE_HIGHLIGHTING" />
@@ -63,20 +65,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="postgresql" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "front-dev",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Pages" />
@@ -141,7 +136,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="front-dev" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>

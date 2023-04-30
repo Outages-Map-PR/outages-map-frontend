@@ -1,5 +1,5 @@
 .navbar {
-    background: #F7F7F7;
+    background: #5E39A9;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -16,11 +16,13 @@
     align-items: center;
     height: 80px;
     max-width: 1500px;
+    overflow: hidden;
 }
 
 .navbar-logo {
     padding-top: 20px;
-    color: #080B14;
+    padding-bottom: 20px;
+    color: whitesmoke;
     justify-self: start;
     margin-left: 5px;
     cursor: pointer;
@@ -38,7 +40,6 @@
     grid-gap: 10px;
     list-style: none;
     text-align: center;
-    width: 60vw;
     justify-content: center;
     margin-right: 2rem;
 
@@ -49,23 +50,24 @@
     padding-right: 1rem;
     position: center;
     width: auto;
+}
 
+.nav-item:hover {
+    color: white;
+    background-color: #773deb;
+    border-bottom: 10px solid #7345FE;
+    transition: all 0.2s ease-out;
 }
 
 .nav-links {
-    font-color: #F7F7F7;
+    color: whitesmoke;
     display: inline-flex;
     align-items: center;
     text-decoration: none;
     padding: 3px 3px;
     height: 100%;
-}
-
-.nav-links:hover {
-    color: white;
-    background-color: #7345FE;
-    border-bottom: 10px solid #7345FE;
-    transition: all 0.2s ease-out;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .nav-links-mobile {
@@ -80,7 +82,7 @@
     display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 600px) {
     .NavbarItems {
         position: relative;
     }

@@ -83,7 +83,7 @@ const LogIn = () => {
             <button type="button" onClick={signupOpenClose}>Sign Up</button>
             <Modal open={showSignUp} onClose={signupOpenClose}
             sx={{
-                top: '40%',
+                top: '30%',
                 left: '35%'
             }}>
                 <SignUpForm close={signupOpenClose}/>

@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from "react"
+import React, {useEffect, useLayoutEffect, useState} from "react"
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
 
 function Profile() {
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        console.log("LayoutEffect")
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
             setUser(loggedInUser);
         } else {
             setUser("0")
         }
+    }, [])
+
+    useEffect(() => {
+        console.log("Effect")
+        getUserInformation()
+        getReports()
     }, [])
 
     const getUserInformation = () => {

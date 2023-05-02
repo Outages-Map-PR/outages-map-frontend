@@ -19,8 +19,8 @@ const LogIn = () => {
 
 
     const handleSubmit = async e => {
-        alert("Missing Username/Password")
-        e.preventDefault();
+        //alert("Missing Username/Password")
+        //e.preventDefault();
 
         axios
             .post(
@@ -42,12 +42,16 @@ const LogIn = () => {
                 setUser(response.data)  //user id gets generated
                 //console.log(user)
                 localStorage.setItem('user', response.data) //cookie
+                alert("Log-in successful")
             })
             .catch(function (error) {
                 console.error(error);
                 setUser("0");
+                alert("Please try again")
+                navigate('/login')
             });
         navigate('/')
+
 //setUser(data)
         // store the user in localStorage
         //localStorage.setItem('user', data)
@@ -70,9 +74,9 @@ const LogIn = () => {
     // if there's no user, show the login form
     return (
         <div className="form-container">
-            <form className="form" onSubmit={() =>handleSubmit()}>
+            <form className="form">
                 <div className="email">
-                    <label className="user-div1" htmlFor="username">Username: </label>
+                    <label className="user-div1" htmlFor="username">Email: </label>
                     <div className="user-div2">
                         <BsPeople className="user-icon"/>
                         <input
@@ -102,7 +106,7 @@ const LogIn = () => {
                 </div>
 
                 <div>
-                     <button className="submit-btn" type="submit">Login</button>
+                     <button className="submit-btn" onClick={() =>handleSubmit()} type="submit">Login</button>
                 </div>
 
                 <div className="footer-signin">

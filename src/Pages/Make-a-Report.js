@@ -11,11 +11,15 @@ import {Box, Modal} from "@mui/material";
 function Report() {
 
     const getUserEmail = () => {
+        if (user === "0"){
+            return;
+        }
         let url = "https://outages-db.herokuapp.com/API/user/" + user
+        console.log(url)
         axios.get(url)
             .then(function (response) {
-                console.log(response.data)
-                setEmail(response.data.toString());
+                //console.log(response.data[0])
+                setEmail(response.data[0].toString());
 
             })
             .catch(function (error){
@@ -38,6 +42,7 @@ function Report() {
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
             setUser(loggedInUser);
+            console.log(user)
         } else {
             setUser("0")
         }
@@ -87,7 +92,7 @@ function Report() {
 
         return(
             <div>
-                {(user === 0 &&
+                {(user === "0" &&
                         <h1 textAlign="center" size="huge" color="black">
                             Please log in to make a report
                         </h1>

@@ -23,7 +23,7 @@ class AuthenticationTests(unittest.TestCase):
         password_input.send_keys("this_is_a_test")
         time.sleep(2)
         password_input.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(2)
 
         message_expected = "Log-in successful"
         messaged_received = self.browser.switch_to.alert.text
@@ -41,7 +41,7 @@ class AuthenticationTests(unittest.TestCase):
         password_input.send_keys("this_is_a_tes")
         time.sleep(2)
         password_input.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(2)
 
         message_expected = "Please try again"
         message_received = self.browser.switch_to.alert.text
@@ -59,7 +59,7 @@ class AuthenticationTests(unittest.TestCase):
         password_input.send_keys("this_is_a_test")
         time.sleep(2)
         password_input.send_keys(Keys.ENTER)
-        time.sleep(1)
+        time.sleep(2)
 
         message_expected = "Please try again"
         message_received = self.browser.switch_to.alert.text

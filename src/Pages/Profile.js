@@ -8,6 +8,7 @@ function Profile() {
     const [reports, setReports] = useState([])
     const [phone, setPhone] = useState("")
     const [showMyReports, setShowMyReports] = useState(false)
+    const [numberReports, setNumberReports] = useState(0)
 
     useLayoutEffect(() => {
         console.log("LayoutEffect")
@@ -50,11 +51,15 @@ function Profile() {
             .then(function (response) {
                 //console.log(response.data)
                 setReports(response.data)
+                setNumberReports(reports.length)
 
             })
             .catch(function (error){
                 console.log(error)
             })
+
+
+
     }
 
     const handleShowMyReports = () => {
@@ -71,7 +76,7 @@ function Profile() {
                 (user !== "0" &&
                     <div>
                          <h1>Your Profile</h1>
-                        <h3>Reports Made</h3>
+                        <h3><b>Reports Made</b>: {numberReports}</h3>
                         <p><b>Email:</b> {email}</p>
                         <p><b>Phone: </b>{phone}</p>
                         <Button variant="contained" onClick={handleShowMyReports} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>See my Reports</Button>

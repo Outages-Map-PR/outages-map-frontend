@@ -43,6 +43,7 @@ const LogIn = () => {
                 //console.log(user)
                 localStorage.setItem('user', response.data) //cookie
                 alert("Log-in successful")
+                window.location.reload(false)
             })
             .catch(function (error) {
                 console.error(error);

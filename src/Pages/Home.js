@@ -116,6 +116,8 @@ function Home() {
   return (
     <div>
       <iframe
+        title = "map-home"
+        name = "map"
         style={{ position: "absolute" }}
         width="1370rem"
         height="500rem"

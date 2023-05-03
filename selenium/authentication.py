@@ -45,13 +45,15 @@ class AuthenticationTests(unittest.TestCase):
 
         message_expected = "Please try again"
         message_received = self.browser.switch_to.alert.text
+        Alert(self.browser).accept()
+        time.sleep(3)
         self.assertEqual(message_received, message_expected, "User was able to login with wrong password")
 
     def test_login_wrongemail(self):
         self.browser.get('http://localhost:3000/login')
         time.sleep(2)
         email_input = self.browser.find_element(By.ID, "email")
-        email_input.send_keys("test2@gmail")
+        email_input.send_keys("test2")
         time.sleep(2)
         password_input = self.browser.find_element(By.ID, "password")
         password_input.send_keys("this_is_a_test")
@@ -61,8 +63,9 @@ class AuthenticationTests(unittest.TestCase):
 
         message_expected = "Please try again"
         message_received = self.browser.switch_to.alert.text
+        Alert(self.browser).accept()
+        time.sleep(3)
         self.assertEqual(message_received, message_expected, "User was able to login with wrong password")
-
 
 
 if __name__ == '__main__':

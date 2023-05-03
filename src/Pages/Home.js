@@ -24,7 +24,6 @@ const CLARO = "claro"
 const ATNT = "at&t"
 const ALL_TYPES = [POWER, WATER, INTERNET, LIBERTY, CLARO, ATNT]
 
-//AUTH FUNCTION WITH DATABASE DATA FOR USER
 
 function Home() {
   const [user, setUser] = useState("0")
@@ -313,5 +312,5 @@ function Home() {
   )
 }
 
-//CHANGE TO AUTH FUNCTION LATER
+
 export default Home

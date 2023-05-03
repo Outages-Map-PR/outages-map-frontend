@@ -2,11 +2,6 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Box, Modal} from "@mui/material";
 
-// import * as UserData from "Database"; Look up how to get Data
-
-
-//AUTH FUNCTION WITH DATABASE DATA FOR USER
-
 
 function Report() {
 
@@ -168,6 +163,4 @@ function Report() {
         )
     }
 
-
-//CHANGE TO AUTH FUNCTION LATER
 export default Report;

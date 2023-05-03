@@ -18,9 +18,9 @@ import {
   MenuItem,
   Select,
   Stack,
-} from "@mui/material";
+} from "@mui/material"
+import './/Css/Analytics.css';
 
-//AUTH FUNCTION WITH DATABASE DATA FOR USER
 
 const POWER = "power";
 const WATER = "water";
@@ -293,5 +293,5 @@ function Analytics() {
   );
 }
 
-//CHANGE TO AUTH FUNCTION LATER
+
 export default Analytics;

@@ -11,6 +11,7 @@ import {
 } from 'react-icons/hi';
 import {HiOutlineHome, HiXMark} from 'react-icons/hi2';
 import {TbReportAnalytics} from 'react-icons/tb';
+import {BsPerson} from 'react-icons/bs';
 
 
 
@@ -160,7 +161,7 @@ const Navbar = () => {
                             <li className='mobile-item'>
                                 <Link to='/profile' className='nav-links-mobile'>
                                     <span>
-                                    <HiOutlineDocumentReport className='icon-mobile'/> Profile
+                                    <BsPerson className='icon-mobile'/> Profile
                                         </span>
                                 </Link>
                             </li>

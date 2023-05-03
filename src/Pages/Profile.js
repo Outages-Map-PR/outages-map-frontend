@@ -1,6 +1,7 @@
 import React, {useEffect, useLayoutEffect, useState} from "react"
 import axios from "axios";
 import { Box, Button, Modal, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import "../Pages/Css/profile.css";
 
 function Profile() {
 
@@ -74,13 +75,26 @@ function Profile() {
                     <h2>Please login in</h2>
             </div>) ||
                 (user !== "0" &&
-                    <div>
-                         <h1>Your Profile</h1>
-                        <h3><b>Reports Made</b>: {numberReports}</h3>
-                        <p><b>Email:</b> {email}</p>
-                        <p><b>Phone: </b>{phone}</p>
-                        <Button variant="contained" onClick={handleShowMyReports} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>See my Reports</Button>
-                        {showMyReports && ( 
+                    <div className="logged-in">
+                         <h1 className="logged-in-h1">Profile</h1>
+                        <div className="profile-info">
+                            <div className="logged-email-div">
+                                <p className="logged-email"><b>Email</b> </p>
+                                <span>{email}</span>
+                            </div>
+                            <hr/>
+                            <div className="logged-phone-div">
+                                <p className="logged-phone"><b>Phone</b></p>
+                                <span>{phone}</span>
+                            </div>
+                            <hr/>
+                            <div className="logged-reports-div">
+                                <h3 className="logged-in-h3"><b>Reports Made</b></h3>
+                                <span>{numberReports}</span>
+                            </div>
+                        </div>
+                        <Button className="see-reports" variant="contained" onClick={handleShowMyReports} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>See my Reports</Button>
+                            {showMyReports && (
                             <Modal open={showMyReports} onClose={handleShowMyReports} >
                                 <Box sx={{backgroundColor: 'white',
                                         margin: '40px', 
@@ -155,7 +169,7 @@ function Profile() {
                                     </Stack>
                                 </Box>
                             </Modal>                            
-                            )}                        
+                            )}
                     </div>
             )}
         </div>

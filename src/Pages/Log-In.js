@@ -81,6 +81,7 @@ const LogIn = () => {
                     <div className="user-div2">
                         <BsPeople className="user-icon"/>
                         <input
+                            id = "email"
                             className="email-input"
                             type="username"
                             value={email}
@@ -95,6 +96,7 @@ const LogIn = () => {
                     <div className="pass-div2">
                         <BsLock className="lock-icon"/>
                         <input
+                            id = "password"
                             className="password-input"
                             type="password"
                             value={password}

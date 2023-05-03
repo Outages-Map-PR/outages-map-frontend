@@ -93,18 +93,19 @@ function Report() {
         return(
             <div>
                 {(user === "0" &&
-                        <h1 textAlign="center" size="huge" color="black">
+                        <h1 textAlign="center" size="huge" color="black" id="report">
                             Please log in to make a report
                         </h1>
                     )
                 || (user !== "0" &&
                         <div>
-                            <h1>
+                            <h1 id="report">
                                 Make a Report
                             </h1>
                             <form onSubmit={handleSubmit}>
                                 <label htmlFor="address">Address: </label>
                                 <input
+                                id = "address"
                                 type="address"
                                 value={address}
                                 placeholder="Enter your address"
@@ -122,6 +123,7 @@ function Report() {
                                 <p />
                                 <label htmlFor="company">Company: </label>
                                 <input
+                                    id = "company"
                                     type="company"
                                     value={company}
                                     placeholder="Enter the company of the outage"

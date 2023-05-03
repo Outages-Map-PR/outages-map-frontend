@@ -125,7 +125,7 @@ function Profile() {
                                                                     borderBottom: "none",
                                                                     padding: "16px",
                                                                     }}>
-                                                                    {report.report_date}
+                                                                    {report.report_date.slice(0, -13)}
                                                                 </TableCell>
                                                                 <TableCell 
                                                                     sx={{

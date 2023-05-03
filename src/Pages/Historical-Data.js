@@ -227,7 +227,7 @@ function RecentReports() {
                         padding: "16px",
                       }}
                     >
-                      {outage.outage_date}
+                      {outage.outage_date.slice(0, -13)}
                     </TableCell>
                     <TableCell
                       sx={{

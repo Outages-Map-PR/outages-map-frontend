@@ -1,13 +1,19 @@
 import React, {useEffect, useLayoutEffect, useState} from "react"
 import axios from "axios";
+import { Box, Button, Modal, Stack, Typography } from "@mui/material";
 
 function Profile() {
 
+    const [user, setUser] = useState("0")
+    const [reports, setReports] = useState([])
+    const [phone, setPhone] = useState("")
+    const [showMyReports, setShowMyReports] = useState(false)
+
     useLayoutEffect(() => {
         console.log("LayoutEffect")
-        const loggedInUser = localStorage.getItem("user");
+        const loggedInUser = localStorage.getItem("user")
         if(loggedInUser) {
-            setUser(loggedInUser);
+            setUser(loggedInUser)
         } else {
             setUser("0")
         }
@@ -27,14 +33,16 @@ function Profile() {
         axios.get(url)
             .then(function (response) {
                 //console.log(response.data)
-                setEmail(response.data[0].toString());
-                setPhone(response.data[1].toString());
+                setEmail(response.data[0].toString())
+                setPhone(response.data[1].toString())
 
             })
             .catch(function (error){
                 console.log(error)
             })
     }
+
+    const [email, setEmail] = useState(getUserInformation())
 
     const getReports = () => {
         let url = "https://outages-db.herokuapp.com/API/report/" + email
@@ -49,18 +57,11 @@ function Profile() {
             })
     }
 
-
-
-
-
-    const [user, setUser] = useState("0");
-    const [email, setEmail] = useState(getUserInformation());
-    const [reports, setReports] = useState([]);
-    const [phone, setPhone] = useState("")
-
+    const handleShowMyReports = () => {
+        setShowMyReports((prevState) => {return !prevState})
+    }
 
     getReports()
-
 
     return (
         <div>
@@ -73,11 +74,21 @@ function Profile() {
                         <h3>Reports Made</h3>
                         <p><b>Email:</b> {email}</p>
                         <p><b>Phone: </b>{phone}</p>
-                        <p><b>Recent Reports: </b></p>
-                        {reports.map((report)=> {
-                            return (
-                                <p>{report.report_address}, {report.report_date}, {report.report_type}, {report.report_company}</p>
-                            )})}
+                        <Button variant="contained" onClick={handleShowMyReports} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>See my Reports</Button>
+                        {showMyReports && ( 
+                            <Modal open={showMyReports} onClose={handleShowMyReports} >
+                                <Box sx={{backgroundColor: 'white', margin: '10px'}}>
+                                    <Stack direction={'column'}>
+                                        <Typography variant="h4">Recent Reports:</Typography>
+                                        {reports.map((report)=> {
+                                            return (
+                                                <Typography variant="h6">{report.report_address}, {report.report_date}, {report.report_type}, {report.report_company}</Typography>
+                                            )})}
+                                        <Button variant="outlined" onClick={handleShowMyReports}>Close</Button>
+                                    </Stack>
+                                </Box>
+                            </Modal>                            
+                            )}                        
                     </div>
             )}
         </div>

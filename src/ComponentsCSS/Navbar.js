@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './/Css/Navbar.css';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {
     HiMenuAlt2,
     HiOutlineFolderOpen,
@@ -18,6 +18,7 @@ import {TbReportAnalytics} from 'react-icons/tb';
 //Navbar Component for the whole website. CSS file Needed.
 const Navbar = () => {
     const [nav, setNav] = useState(true);
+    const navigate = useNavigate();
 
     const handleNav = () => {
         setNav(!nav)
@@ -40,6 +41,8 @@ const Navbar = () => {
     const handleLogout = () => {
         setUser("0");
         localStorage.clear();
+        window.location.reload(false)
+        navigate('/')
     };
 
     let buttonUser1;
@@ -99,6 +102,13 @@ const Navbar = () => {
                             Make a Report
                         </Link>
                     </li>
+                    {(user !== "0" &&
+                        <li className='nav-item'>
+                            <Link to='/profile' className='nav-links'>
+                                Profile
+                            </Link>
+                        </li>
+                    )}
                     {buttonUser1}
                 </ul>
 
@@ -146,6 +156,15 @@ const Navbar = () => {
                                       </span>
                             </Link>
                         </li>
+                        {(user !== "0" &&
+                            <li className='mobile-item'>
+                                <Link to='/profile' className='nav-links-mobile'>
+                                    <span>
+                                    <HiOutlineDocumentReport className='icon-mobile'/> Profile
+                                        </span>
+                                </Link>
+                            </li>
+                        )}
                         {buttonUser2}
                     </ul>
                 </div>

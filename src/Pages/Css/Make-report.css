@@ -1,0 +1,41 @@
+.report-container{
+
+}
+
+.report-form{
+
+}
+
+.form{
+
+}
+
+.address{
+
+}
+
+input{
+    outline:none;
+    border: none;
+    border-radius: 20px;
+}
+
+.outage-type{
+
+}
+
+.company{
+
+}
+
+.signup-btn{
+    color: black;
+    background-color: #F7F7F7;
+    border: none;
+    cursor: pointer;
+
+}
+
+.signup-btn:hover{
+    text-decoration: underline;
+}

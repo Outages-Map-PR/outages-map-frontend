@@ -19,7 +19,7 @@ import {
   Select,
   Stack,
 } from "@mui/material"
-import './/Css/Analytics.css';
+// import './/Css/Analytics.css';
 
 
 const POWER = "power";

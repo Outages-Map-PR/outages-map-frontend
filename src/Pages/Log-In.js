@@ -73,7 +73,7 @@ const LogIn = () => {
 
     // if there's no user, show the login form
     return (
-        <div className="form-container">
+        <div className="form-container" onSubmit={() =>handleSubmit()}>
             <form className="form">
                 <div className="email">
                     <label className="user-div1" htmlFor="username">Email: </label>
@@ -106,7 +106,7 @@ const LogIn = () => {
                 </div>
 
                 <div>
-                     <button className="submit-btn" onClick={() =>handleSubmit()} type="submit">Login</button>
+                     <button className="submit-btn" type="submit">Login</button>
                 </div>
 
                 <div className="footer-signin">

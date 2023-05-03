@@ -1,6 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from "react"
 import axios from "axios";
-import { Box, Button, Modal, Stack, Typography } from "@mui/material";
+import { Box, Button, Modal, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 
 function Profile() {
 
@@ -77,14 +77,76 @@ function Profile() {
                         <Button variant="contained" onClick={handleShowMyReports} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>See my Reports</Button>
                         {showMyReports && ( 
                             <Modal open={showMyReports} onClose={handleShowMyReports} >
-                                <Box sx={{backgroundColor: 'white', margin: '10px'}}>
+                                <Box sx={{backgroundColor: 'white',
+                                        margin: '40px', 
+                                        padding: '20px', 
+                                        borderRadius: '3px'}} overflow={'auto'}>
                                     <Stack direction={'column'}>
-                                        <Typography variant="h4">Recent Reports:</Typography>
-                                        {reports.map((report)=> {
-                                            return (
-                                                <Typography variant="h6">{report.report_address}, {report.report_date}, {report.report_type}, {report.report_company}</Typography>
-                                            )})}
-                                        <Button variant="outlined" onClick={handleShowMyReports}>Close</Button>
+                                        <Box boxShadow={7} sx={{maxHeight: '80vh'}} overflow={'auto'}> 
+                                            <Table size="small">
+                                                <TableHead sx={{backgroundColor: '#DEDEE7'}}>
+                                                    <TableRow>
+                                                        <TableCell>
+                                                            Address
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            Date
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            Type
+                                                        </TableCell>
+                                                        <TableCell>
+                                                            Company
+                                                        </TableCell>
+                                                    </TableRow>
+                                                </TableHead>
+                                                <TableBody>
+                                                    {reports.map((report, index) => {
+                                                        return (
+                                                            <TableRow key={index} sx={{border: '1px solid rgba(224, 224, 224, 1)'}}>
+                                                                <TableCell 
+                                                                    sx={{
+                                                                    borderTop:
+                                                                        index === 0 ? 0 : "1px solid rgba(224, 224, 224, 1)",
+                                                                    borderBottom: "none",
+                                                                    padding: "16px",
+                                                                    }}>
+                                                                    {report.report_address}
+                                                                </TableCell >
+                                                                <TableCell 
+                                                                    sx={{
+                                                                    borderTop:
+                                                                        index === 0 ? 0 : "1px solid rgba(224, 224, 224, 1)",
+                                                                    borderBottom: "none",
+                                                                    padding: "16px",
+                                                                    }}>
+                                                                    {report.report_date}
+                                                                </TableCell>
+                                                                <TableCell 
+                                                                    sx={{
+                                                                    borderTop:
+                                                                        index === 0 ? 0 : "1px solid rgba(224, 224, 224, 1)",
+                                                                    borderBottom: "none",
+                                                                    padding: "16px",
+                                                                    }}>
+                                                                    {report.report_type.toUpperCase()}
+                                                                </TableCell>
+                                                                <TableCell 
+                                                                    sx={{
+                                                                    borderTop:
+                                                                        index === 0 ? 0 : "1px solid rgba(224, 224, 224, 1)",
+                                                                    borderBottom: "none",
+                                                                    padding: "16px",
+                                                                    }}>
+                                                                    {report.report_company}
+                                                                </TableCell>
+                                                            </TableRow>
+                                                        )
+                                                    })}
+                                                </TableBody>
+                                            </Table>
+                                        </Box>                                                  
+                                        <Button variant="outlined" onClick={handleShowMyReports} sx={{marginTop: '40px', boxShadow: 7}}>Close</Button>                              
                                     </Stack>
                                 </Box>
                             </Modal>                            

@@ -117,9 +117,7 @@ function Home() {
       <iframe
         title = "map-home"
         name = "map"
-        style={{ position: "absolute" }}
-        width="1370rem"
-        height="500rem"
+        style={{ position: "absolute", display: "block", height: "88vh", width: "100vw", border: "none"}}
         src={`https://outages-db.herokuapp.com/map/home?filters=${appliedFilter}`}
       />
       <Button

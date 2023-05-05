@@ -6,6 +6,7 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
+  Modal,
   OutlinedInput,
   Stack,
   TextField,
@@ -67,15 +68,24 @@ const SignUpForm = ({ close }) => {
   };
 
   return (
-    <Box
-      sx={{ padding: "10px", backgroundColor: "whitesmoke", width: "25vw" }}
-    >
+    <>
       {successSignUp ? (
-        <>
-          <h3 style={{ color: "green" }}>User successfully created.</h3>
-          <button onClick={closeForm}>Close</button>
-        </>
+        <Box sx={{ padding: "10px", backgroundColor: "whitesmoke", width: "25vw", borderRadius: '3px', display: 'flex', justifyContent: 'center'}}>
+          <Stack direction={'column'}>
+            <Typography >Account created.</Typography>
+            <Button variant="contained" onClick={closeForm} sx={{backgroundColor: "#773deb", marginBottom:"10px", ":hover": {backgroundColor: "#572dab"}, marginTop: '10px'}} size="small">Close</Button>
+          </Stack>
+        </Box>
       ) : (
+      <Box
+        sx={{ padding: "10px", 
+            backgroundColor: "whitesmoke", 
+            borderRadius: '3px', 
+            padding: '20px',
+            maxWidth: '400px',
+            maxHeight: '60vh'    
+            }} overflow={'auto'}
+      >
         <Stack direction={"column"} sx={{marginTop:"20px", marginLeft:"10px", marginRight:"10px", marginBottom:"20px"}}>
           <h2 style={{ marginBottom: "5px" }}>Let's sign you up!</h2>
           <h5 style={{ marginBottom: "20px", color: "grey" }}>
@@ -182,11 +192,12 @@ const SignUpForm = ({ close }) => {
           {!passwordsMatch && (
             <p style={{ color: "red" }}>Passwords do not match</p>
           )}
-          <Button variant="contained" onClick={handleSignUp} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>Sign Up</Button>
+          <Button variant="contained" onClick={handleSignUp} sx={{backgroundColor: "#773deb", marginBottom:"10px", ":hover":{backgroundColor: '#572dab'}}}>Sign Up</Button>
           <Button variant="outlined" onClick={closeForm}>Cancel</Button>
         </Stack>
+      </Box>
       )}
-    </Box>
+    </>
   );
 };
 

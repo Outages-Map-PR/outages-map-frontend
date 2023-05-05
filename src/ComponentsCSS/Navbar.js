@@ -22,7 +22,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     const handleNav = () => {
-        setNav(!nav)
+        setNav((prevState) => {return !prevState})
     }
 
     const [user, setUser] = useState("0")
@@ -81,7 +81,7 @@ const Navbar = () => {
     return(
         <navbar className="navbar">
             <div className="navbar-container">
-                <Link to="/" className="navbar-logo">OUTAGES PR</Link>
+                <Link to="/" className="navbar-logo" onClick={nav? function(){} : handleNav}>OUTAGES PR</Link>
                 <ul className='nav-menu max'>
                     <li className='nav-item'>
                         <Link to='/recent-reports' className='nav-links' >
@@ -125,33 +125,33 @@ const Navbar = () => {
                 <div className={!nav ? ' nav-menu active' : 'nav-item nav-menu hidden'}>
                     <ul className={!nav ? 'nav-item active' : 'nav-item hidden'}>
                         <li className='mobile-item'>
-                            <Link to='/' className='nav-links-mobile' >
+                            <Link to='/' className='nav-links-mobile' onClick={handleNav}>
                                 <span><HiOutlineHome className='icon-mobile'/> Home </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
-                            <Link to='/recent-reports' className='nav-links-mobile' >
+                            <Link to='/recent-reports' className='nav-links-mobile' onClick={handleNav}>
                                 <span>
                                     <TbReportAnalytics className='icon-mobile'/> Recent Reports
                                 </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
-                            <Link to='/historical-data' className='nav-links-mobile' >
+                            <Link to='/historical-data' className='nav-links-mobile' onClick={handleNav}>
                                  <span>
                                      <HiOutlineFolderOpen className='icon-mobile'/> Historical Data
                                       </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
-                            <Link to='/analytics' className='nav-links-mobile' >
+                            <Link to='/analytics' className='nav-links-mobile' onClick={handleNav}>
                                  <span>
                                 <HiOutlinePresentationChartBar className='icon-mobile'/> Analytics
                                       </span>
                             </Link>
                         </li>
                         <li className='mobile-item'>
-                            <Link to='/report' className='nav-links-mobile'>
+                            <Link to='/report' className='nav-links-mobile' onClick={handleNav}>
                                  <span>
                                 <HiOutlineDocumentReport className='icon-mobile'/> Make a Report
                                       </span>
@@ -159,7 +159,7 @@ const Navbar = () => {
                         </li>
                         {(user !== "0" &&
                             <li className='mobile-item'>
-                                <Link to='/profile' className='nav-links-mobile'>
+                                <Link to='/profile' className='nav-links-mobile' onClick={handleNav}>
                                     <span>
                                     <BsPerson className='icon-mobile'/> Profile
                                         </span>

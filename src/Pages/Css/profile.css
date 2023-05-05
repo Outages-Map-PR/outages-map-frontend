@@ -1,8 +1,11 @@
 .logged-in{
     padding-top: 20px;
     padding-left: 10px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, 0%);
     width: 400px;
     margin-top: 20px;
     border-radius: 30px;
@@ -60,5 +63,13 @@
     justify-content: center !important;
     align-content: center !important;
     display: flex !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    margin-bottom: 10px !important;
+    background-color: #773deb !important;
+}
+
+.see-reports:hover {
+    background-color: #572dab !important;
 }
 

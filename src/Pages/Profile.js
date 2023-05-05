@@ -1,6 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from "react"
 import axios from "axios";
-import { Box, Button, Modal, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Button, Modal, Stack, Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
 import "../Pages/Css/profile.css";
 
 function Profile() {
@@ -93,7 +93,7 @@ function Profile() {
                                 <span>{numberReports}</span>
                             </div>
                         </div>
-                        <Button className="see-reports" variant="contained" onClick={handleShowMyReports} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>See my Reports</Button>
+                        <Button className="see-reports" variant="contained" onClick={handleShowMyReports}>See my Reports</Button>
                             {showMyReports && (
                             <Modal open={showMyReports} onClose={handleShowMyReports} >
                                 <Box sx={{backgroundColor: 'white',

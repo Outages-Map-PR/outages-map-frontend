@@ -9,6 +9,8 @@
 }
 
 .form{
+    height: 50vh;
+    width: 80vw;
     background: #F7F7F7;
     padding: 2em;
     display: flex;
@@ -47,6 +49,8 @@
      outline:none;
      border: none;
      border-radius: 20px;
+     font-size: 16px;
+     width: 49vw;
 }
 
  .email input::placeholder{
@@ -85,8 +89,12 @@
     cursor: pointer;
 }
 
-.footer{
+.footer-signin{
     display: grid;
+    position: relative;
+    top: -10%;
+    left: -5%;
+    left: 1%;
 }
 
 .signup-btn{

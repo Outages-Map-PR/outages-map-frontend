@@ -82,11 +82,9 @@ const SignUpForm = ({ close }) => {
             backgroundColor: "whitesmoke", 
             borderRadius: '3px', 
             padding: '20px',
-            // margin: '40px', 
             maxWidth: '400px',
-            // top: '50%',
-            // left: '50%',          
-            }}
+            maxHeight: '60vh'    
+            }} overflow={'auto'}
       >
         <Stack direction={"column"} sx={{marginTop:"20px", marginLeft:"10px", marginRight:"10px", marginBottom:"20px"}}>
           <h2 style={{ marginBottom: "5px" }}>Let's sign you up!</h2>
@@ -194,7 +192,7 @@ const SignUpForm = ({ close }) => {
           {!passwordsMatch && (
             <p style={{ color: "red" }}>Passwords do not match</p>
           )}
-          <Button variant="contained" onClick={handleSignUp} sx={{backgroundColor: "#773deb", marginBottom:"10px"}}>Sign Up</Button>
+          <Button variant="contained" onClick={handleSignUp} sx={{backgroundColor: "#773deb", marginBottom:"10px", ":hover":{backgroundColor: '#572dab'}}}>Sign Up</Button>
           <Button variant="outlined" onClick={closeForm}>Cancel</Button>
         </Stack>
       </Box>

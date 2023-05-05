@@ -79,6 +79,7 @@ const LogIn = () => {
 
     // if there's no user, show the login form
     return (
+        <>
         <div className="form-container" onSubmit={() =>handleSubmit()}>
             <form className="form">
                 <div className="email">
@@ -128,14 +129,15 @@ const LogIn = () => {
                     </div>
 
                     <div className="sign-up-form">
-                        <Modal open={showSignUp} onClose={signupOpenClose}
+                        {/* <Modal open={showSignUp} onClose={signupOpenClose}
                                sx={{
                                    top: window.innerWidth > 730 ? '30%' : '10%',
                                    left: window.innerWidth > 730 ? '30%' : '10%',
                                 //    transform: 'translate(-50%, -50%)'
                                }} >
                             <SignUpForm close={signupOpenClose}/>
-                        </Modal>
+                        </Modal> */}
+
                     </div>
 
                     {/*<div>*/}
@@ -145,6 +147,15 @@ const LogIn = () => {
 
             </form>
         </div>
+        <Modal open={showSignUp} onClose={signupOpenClose}
+                sx={{
+                    top: '10%',
+                    display: 'flex',
+                    justifyContent: 'center'
+                }} >
+            <SignUpForm close={signupOpenClose}/>
+        </Modal>
+        </>
     );
 };
 

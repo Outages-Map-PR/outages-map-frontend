@@ -11,11 +11,12 @@ import {BsPeople, BsLock, Bs0Circle} from "react-icons/bs";
 
 
 const LogIn = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [user, setUser] = useState("0")
     const [showSignUp, setShowSignUp] = useState(false)
-    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false)
+    const navigate = useNavigate()
 
 
     const handleSubmit = async e => {
@@ -64,6 +65,10 @@ const LogIn = () => {
         })
     }
 
+    const handleShowPassword = () => {
+        setShowPassword((prevState) => {return !prevState})
+    }
+
 // if there's a user show the message below
 //     if (user) {
 //         return <div>
@@ -98,12 +103,17 @@ const LogIn = () => {
                         <input
                             id = "password"
                             className="password-input"
-                            type="password"
+                            type= {showPassword ? "text" : "password"}
                             value={password}
                             placeholder="enter a password"
                             onChange={({target}) => setPassword(target.value)}
                         />
-                        <AiOutlineEye className="show-pass-icon"/>
+                        {showPassword ? (
+                            <AiOutlineEye onClick={handleShowPassword}/>
+                        ) : (
+                            <AiOutlineEyeInvisible onClick={handleShowPassword} />
+                        )}
+                        
                     </div>
 
                 </div>
@@ -120,9 +130,10 @@ const LogIn = () => {
                     <div className="sign-up-form">
                         <Modal open={showSignUp} onClose={signupOpenClose}
                                sx={{
-                                   top: '40%',
-                                   left: '35%'
-                               }}>
+                                   top: window.innerWidth > 730 ? '30%' : '10%',
+                                   left: window.innerWidth > 730 ? '30%' : '10%',
+                                //    transform: 'translate(-50%, -50%)'
+                               }} >
                             <SignUpForm close={signupOpenClose}/>
                         </Modal>
                     </div>

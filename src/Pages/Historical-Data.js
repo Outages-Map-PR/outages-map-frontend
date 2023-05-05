@@ -180,6 +180,7 @@ function RecentReports() {
             borderRadius: "3px",
             marginTop: "20px",
           }}
+          overflow={'auto'}
         >
           <Table>
             <TableHead sx={{ backgroundColor: "#DEDEE7" }}>

@@ -49,10 +49,10 @@ const Navbar = () => {
     let buttonUser1;
     if (!user.startsWith("0")){
         buttonUser1 = (<li className='nav-item'>
-            <Link to='/' className=' nav-links-btn btn btn--medium' onClick={() => {handleLogout(); handleNav()}}>Logout
+            <Link to='/' className=' nav-links-btn btn btn--medium' onClick={() => handleLogout()}>Logout
             </Link></li>)
     } else{
-        buttonUser1 = <li className='nav-item' onClick={handleNav}>
+        buttonUser1 = <li className='nav-item' >
             <Link to='/login' className='nav-links-btn btn--medium btn--outline'>Log In
 
             </Link></li>

@@ -4,6 +4,7 @@ import {
   BarChart,
   CartesianGrid,
   Legend,
+  ResponsiveContainer,
   Tooltip,
   XAxis,
   YAxis,
@@ -18,9 +19,9 @@ import {
   MenuItem,
   Select,
   Stack,
-} from "@mui/material";
+} from "@mui/material"
+// import './/Css/Analytics.css';
 
-//AUTH FUNCTION WITH DATABASE DATA FOR USER
 
 const POWER = "power";
 const WATER = "water";
@@ -222,18 +223,20 @@ function Analytics() {
 
         <h2 style={{ textAlign: "center" }}>Power Outages</h2>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <BarChart width={730} height={250} data={stateLists.POWER}>
-            <XAxis dataKey="day" interval={0} />
-            <YAxis domain={[0, maxNum]} />
-            <Tooltip />
-            <Bar
-              animationDuration={2000}
-              dataKey="count"
-              fill="#8884d8"
-              barSize={15}
-              name={"Number of Outages"}
-            />
-          </BarChart>
+          <ResponsiveContainer width={window.innerWidth > 730 ? 730 : "100%"}  height={250} >
+            <BarChart data={stateLists.POWER}>
+              <XAxis dataKey="day" />
+              <YAxis domain={[0, maxNum]} />
+              <Tooltip />
+              <Bar
+                animationDuration={2000}
+                dataKey="count"
+                fill="#8884d8"
+                barSize={15}
+                name={"Number of Outages"}
+              />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
         <h3 style={{ textAlign: "center" }}>Day</h3>
 
@@ -248,18 +251,20 @@ function Analytics() {
 
         <h2 style={{ textAlign: "center" }}>Water Outages</h2>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <BarChart width={730} height={250} data={stateLists.WATER}>
-            <XAxis dataKey="day" interval={0} />
-            <YAxis domain={[0, maxNum]} />
-            <Tooltip />
-            <Bar
-              animationDuration={2000}
-              dataKey="count"
-              fill="#8884d8"
-              barSize={15}
-              name={"Number of Outages"}
-            />
-          </BarChart>
+          <ResponsiveContainer width={window.innerWidth > 730 ? 730 : "100%"}  height={250} >            
+            <BarChart data={stateLists.WATER}>
+              <XAxis dataKey="day" />
+              <YAxis domain={[0, maxNum]} />
+              <Tooltip />
+              <Bar
+                animationDuration={2000}
+                dataKey="count"
+                fill="#8884d8"
+                barSize={15}
+                name={"Number of Outages"}
+              />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
         <h3 style={{ textAlign: "center" }}>Day</h3>
 
@@ -274,18 +279,20 @@ function Analytics() {
 
         <h2 style={{ textAlign: "center" }}>Internet Outages</h2>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <BarChart width={730} height={250} data={stateLists.INTERNET}>
-            <XAxis dataKey="day" interval={0} />
-            <YAxis domain={[0, maxNum]} />
-            <Tooltip />
-            <Bar
-              animationDuration={2000}
-              dataKey="count"
-              fill="#8884d8"
-              barSize={15}
-              name={"Number of Outages"}
-            />
-          </BarChart>
+          <ResponsiveContainer width={window.innerWidth > 730 ? 730 : "100%"}  height={250} >            
+            <BarChart data={stateLists.INTERNET}>
+              <XAxis dataKey="day" />
+              <YAxis domain={[0, maxNum]} />
+              <Tooltip />
+              <Bar
+                animationDuration={2000}
+                dataKey="count"
+                fill="#8884d8"
+                barSize={15}
+                name={"Number of Outages"}
+              />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
         <h3 style={{ textAlign: "center", marginBottom: "40px" }}>Day</h3>
       </Stack>
@@ -293,5 +300,5 @@ function Analytics() {
   );
 }
 
-//CHANGE TO AUTH FUNCTION LATER
+
 export default Analytics;

@@ -24,7 +24,6 @@ const CLARO = "claro"
 const ATNT = "at&t"
 const ALL_TYPES = [POWER, WATER, INTERNET, LIBERTY, CLARO, ATNT]
 
-//AUTH FUNCTION WITH DATABASE DATA FOR USER
 
 function Home() {
   const [user, setUser] = useState("0")
@@ -116,9 +115,9 @@ function Home() {
   return (
     <div>
       <iframe
-        style={{ position: "absolute" }}
-        width="1370rem"
-        height="500rem"
+        title = "map-home"
+        name = "map"
+        style={{ position: "absolute", display: "block", height: "88vh", width: "100vw", border: "none"}}
         src={`https://outages-db.herokuapp.com/map/home?filters=${appliedFilter}`}
       />
       <Button
@@ -311,5 +310,5 @@ function Home() {
   )
 }
 
-//CHANGE TO AUTH FUNCTION LATER
+
 export default Home

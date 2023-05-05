@@ -2,20 +2,19 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Box, Modal} from "@mui/material";
 
-// import * as UserData from "Database"; Look up how to get Data
-
-
-//AUTH FUNCTION WITH DATABASE DATA FOR USER
-
 
 function Report() {
 
     const getUserEmail = () => {
+        if (user === "0"){
+            return;
+        }
         let url = "https://outages-db.herokuapp.com/API/user/" + user
+        console.log(url)
         axios.get(url)
             .then(function (response) {
-                console.log(response.data)
-                setEmail(response.data.toString());
+                //console.log(response.data[0])
+                setEmail(response.data[0].toString());
 
             })
             .catch(function (error){
@@ -38,6 +37,7 @@ function Report() {
         const loggedInUser = localStorage.getItem("user");
         if(loggedInUser) {
             setUser(loggedInUser);
+            console.log(user)
         } else {
             setUser("0")
         }
@@ -87,44 +87,70 @@ function Report() {
 
         return(
             <div>
-                {(user === 0 &&
-                        <h1 textAlign="center" size="huge" color="black">
+                {(user === "0" &&
+                        <h1 textAlign="center" size="huge" color="black" id="report">
                             Please log in to make a report
                         </h1>
                     )
                 || (user !== "0" &&
-                        <div>
-                            <h1>
-                                Make a Report
-                            </h1>
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor="address">Address: </label>
-                                <input
-                                type="address"
-                                value={address}
-                                placeholder="Enter your address"
-                                onChange={({ target }) => setAddress(target.value)}
-                                />
-                                <p />
-                                <label htmlFor="type">Type: </label>
-                                <select type="type" id="type" name="type" size="3"
-                                        placeholder="Enter the type of the outage"
-                                        onChange={({ target }) => setType(target.value)}>
-                                    <option value="water">Water</option>
-                                    <option value="power">Power</option>
-                                    <option value="internet">Internet</option>
-                                </select>
-                                <p />
-                                <label htmlFor="company">Company: </label>
-                                <input
-                                    type="company"
-                                    value={company}
-                                    placeholder="Enter the company of the outage"
-                                    onChange={({ target }) => setCompany(target.value)}
-                                />
-                                <p />
-                                <button type="submit">Make a Report</button>
-                        </form>
+                        <div className="report-container">
+                            <div className="report-form">
+                                <h1 id="report"> Make a Report</h1>
+                                <form className="form" onSubmit={handleSubmit}>
+
+                                    <div className="address">
+                                        <div className= "address-div1">
+                                            <label onClick="address-label" htmlFor="address">Address: </label>
+                                        </div>
+                                        <div className="address-div2">
+                                            <input
+                                                id = "address"
+                                                type="address"
+                                                value={address}
+                                                placeholder="Enter your address"
+                                                onChange={({ target }) => setAddress(target.value)}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="outage-type">
+                                        <div className="outage-type-div1">
+                                            <label htmlFor="type">Type: </label>
+                                        </div>
+                                        <div className="outage-type-div2">
+                                            <select id="type" name="type" size="3"
+                                                    placeholder="Enter the type of the outage"
+                                                    onChange={({ target }) => setType(target.value)}>
+                                                <option value="water">Water</option>
+                                                <option value="power">Power</option>
+                                                <option value="internet">Internet</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="company">
+                                        <div className="Company-div1">
+                                            <label htmlFor="company">Company: </label>
+                                        </div>
+                                        <div className="company-div2">
+                                            <input
+                                                id = "company"
+                                                type="company"
+                                                value={company}
+                                                placeholder="Enter the company of the outage"
+                                                onChange={({ target }) => setCompany(target.value)}
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="footer">
+                                        <div>
+                                            <button className="submit-btn" type="submit">Make a Report</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
                     )
                 }
@@ -161,6 +187,4 @@ function Report() {
         )
     }
 
-
-//CHANGE TO AUTH FUNCTION LATER
 export default Report;

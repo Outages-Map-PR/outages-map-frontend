@@ -49,7 +49,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^12.11.0",
+    "cypress": "^12.10.0",
     "cypress-slow-down": "^1.2.1"
   }
 }

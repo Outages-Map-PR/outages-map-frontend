@@ -186,6 +186,7 @@ function RecentReports() {
               <TableRow>
                 <TableCell>Type</TableCell>
                 <TableCell>Source</TableCell>
+                <TableCell>Date</TableCell>
                 <TableCell>Company</TableCell>
               </TableRow>
             </TableHead>
@@ -217,6 +218,16 @@ function RecentReports() {
                       }}
                     >
                       {source}
+                    </TableCell>
+                    <TableCell
+                      sx={{
+                        borderTop:
+                          index === 0 ? 0 : "1px solid rgba(224, 224, 224, 1)",
+                        borderBottom: "none",
+                        padding: "16px",
+                      }}
+                    >
+                      {outage.outage_date.slice(0, -13)}
                     </TableCell>
                     <TableCell
                       sx={{

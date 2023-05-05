@@ -19,8 +19,8 @@ const LogIn = () => {
 
 
     const handleSubmit = async e => {
-        alert("Missing Username/Password")
-        e.preventDefault();
+        //alert("Missing Username/Password")
+        //e.preventDefault();
 
         axios
             .post(
@@ -42,12 +42,17 @@ const LogIn = () => {
                 setUser(response.data)  //user id gets generated
                 //console.log(user)
                 localStorage.setItem('user', response.data) //cookie
+                alert("Log-in successful")
+                window.location.reload(false)
             })
             .catch(function (error) {
                 console.error(error);
                 setUser("0");
+                alert("Please try again")
+                navigate('/login')
             });
         navigate('/')
+
 //setUser(data)
         // store the user in localStorage
         //localStorage.setItem('user', data)
@@ -69,13 +74,14 @@ const LogIn = () => {
 
     // if there's no user, show the login form
     return (
-        <div className="form-container">
-            <form className="form" onSubmit={() =>handleSubmit()}>
+        <div className="form-container" onSubmit={() =>handleSubmit()}>
+            <form className="form">
                 <div className="email">
-                    <label className="user-div1" htmlFor="username">Username: </label>
+                    <label className="user-div1" htmlFor="username">Email: </label>
                     <div className="user-div2">
                         <BsPeople className="user-icon"/>
                         <input
+                            id = "email"
                             className="email-input"
                             type="username"
                             value={email}
@@ -90,6 +96,7 @@ const LogIn = () => {
                     <div className="pass-div2">
                         <BsLock className="lock-icon"/>
                         <input
+                            id = "password"
                             className="password-input"
                             type="password"
                             value={password}

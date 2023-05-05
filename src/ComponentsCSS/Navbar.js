@@ -49,10 +49,10 @@ const Navbar = () => {
     let buttonUser1;
     if (!user.startsWith("0")){
         buttonUser1 = (<li className='nav-item'>
-            <Link to='/' className=' nav-links-btn btn btn--medium' onClick={() => handleLogout()}>Logout
+            <Link to='/' className=' nav-links-btn btn btn--medium' onClick={() => {handleLogout(); handleNav()}}>Logout
             </Link></li>)
     } else{
-        buttonUser1 = <li className='nav-item'>
+        buttonUser1 = <li className='nav-item' onClick={handleNav}>
             <Link to='/login' className='nav-links-btn btn--medium btn--outline'>Log In
 
             </Link></li>
@@ -60,7 +60,7 @@ const Navbar = () => {
     let buttonUser2;
     if (!user.startsWith("0")){
         buttonUser2 = (<li className='mobile-item'>
-            <Link to='/' className='nav-links-mobile' onClick={() => handleLogout()}>
+            <Link to='/' className='nav-links-mobile' onClick={() => {handleLogout(); handleNav()}}>
                                 <span>
                                 <HiOutlineLogout className='icon-mobile'/> Logout
                                 </span>
@@ -68,7 +68,7 @@ const Navbar = () => {
         </li>)
     } else {
         buttonUser2 = (<li className='mobile-item'>
-            <Link to='/login' className='nav-links-mobile'>
+            <Link to='/login' className='nav-links-mobile' onClick={handleNav}>
                                 <span>
                                 <HiOutlineLogin className='icon-mobile'/> Login
                                 </span>

@@ -1,17 +1,47 @@
 .report-container{
-
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .report-form{
+    height: 75vh;
+    width: 60vw;
+    background: #F7F7F7;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 0 0 2em lightgray;
+    gap: 3em;
 
 }
 
-.form{
+h1 {
+    position: relative;
+    left: 10%;
+    /*padding-bottom: 10px;*/
 
 }
+
+p{
+    position: relative;
+    top: -9%;
+
+}
+
+/*.report-div{*/
+
+/*}*/
 
 .address{
-
+    position: relative;
+    padding: 10px;
+    top: -25%;
+    color: #7345FE;
+    background-color: white;
+    border-radius: 10px;
 }
 
 input{
@@ -21,11 +51,52 @@ input{
 }
 
 .outage-type{
+    position: relative;
+    padding: 10px;
+    top: -20%;
+    color: #7345FE;
+    background-color: white;
+    border-radius: 10px;
+}
 
+.outage-descrip{
+    padding: 5px;
+    font-size: small;
+    color: black;
+}
+
+select{
+    outline: none;
+    border: none;
+    overflow-y: hidden;
+    padding-left: 5px;
+    padding-top: 4px;
+}
+
+option{
+    padding-bottom: 3px;
+    padding: 2px;
+    margin: 2px;
+}
+option:hover{
+    color: #7345FE;
+    cursor: pointer;
+}
+
+option:checked{
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
 }
 
 .company{
-
+    position: relative;
+    padding: 10px;
+    top: -10%;
+    color: #7345FE;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .signup-btn{

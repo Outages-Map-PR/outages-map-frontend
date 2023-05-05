@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Css outline for make a report created/ not imported yet">
+    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Iframe fixed to fit screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Css/Make-report.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Css/Make-report.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Make-a-Report.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Make-a-Report.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +97,9 @@
       <workItem from="1680812498819" duration="65000" />
       <workItem from="1680812720006" duration="3390000" />
       <workItem from="1682821525518" duration="1959000" />
-      <workItem from="1683235830535" duration="295000" />
+      <workItem from="1683235830535" duration="1829000" />
+      <workItem from="1683251161048" duration="106000" />
+      <workItem from="1683254229720" duration="5908000" />
     </task>
     <task id="LOCAL-00001" summary="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar">
       <created>1680729870708</created>
@@ -133,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683144971000</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="+Iframe fixed to fit screen">
+      <created>1683236170844</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683236170844</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +185,7 @@
     <MESSAGE value="+Log-In Css Completed&#10;-Removed Unused Components" />
     <MESSAGE value="+Profile Css test" />
     <MESSAGE value="+Css outline for make a report created/ not imported yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="+Css outline for make a report created/ not imported yet" />
+    <MESSAGE value="+Iframe fixed to fit screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Iframe fixed to fit screen" />
   </component>
 </project>

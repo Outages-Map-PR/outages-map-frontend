@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Box, Modal} from "@mui/material";
+import "../Pages/Css/Make-report.css";
 
 
 function Report() {
@@ -95,19 +96,19 @@ function Report() {
                 || (user !== "0" &&
                         <div className="report-container">
                             <div className="report-form">
-                                <h1 id="report"> Make a Report</h1>
-                                <form className="form" onSubmit={handleSubmit}>
-
+                                <h1 id="report">Make a Report</h1>
+                                <p>Report helps us keep everyone notified of possible outages once they been verified!</p>
+                                <form className="report-div" onSubmit={handleSubmit}>
                                     <div className="address">
                                         <div className= "address-div1">
-                                            <label onClick="address-label" htmlFor="address">Address: </label>
+                                            <label onClick="address-label" htmlFor="address">Address </label>
                                         </div>
                                         <div className="address-div2">
                                             <input
                                                 id = "address"
                                                 type="address"
                                                 value={address}
-                                                placeholder="Enter your address"
+                                                placeholder="Enter address of outage"
                                                 onChange={({ target }) => setAddress(target.value)}
                                             />
                                         </div>
@@ -115,7 +116,8 @@ function Report() {
 
                                     <div className="outage-type">
                                         <div className="outage-type-div1">
-                                            <label htmlFor="type">Type: </label>
+                                            <label htmlFor="type">Type </label>
+                                            <p className="outage-descrip">Select the type of outage you wish to report.</p>
                                         </div>
                                         <div className="outage-type-div2">
                                             <select id="type" name="type" size="3"

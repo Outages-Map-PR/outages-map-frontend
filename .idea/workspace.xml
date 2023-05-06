@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Css for Profile updated">
+    <list default="true" id="8411a21d-6289-4931-88e3-7f613187932e" name="Changes" comment="+Bug fix for report alert">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_29_2023_1_45_PM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_29_2023_1_45_PM__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Css/LogIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Css/LogIn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Css/Make-report.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Css/Make-report.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Pages/Log-In.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Log-In.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Pages/Make-a-Report.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Pages/Make-a-Report.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +103,8 @@
       <workItem from="1682821525518" duration="1959000" />
       <workItem from="1683235830535" duration="1829000" />
       <workItem from="1683251161048" duration="106000" />
-      <workItem from="1683254229720" duration="15405000" />
+      <workItem from="1683254229720" duration="17448000" />
+      <workItem from="1683399411327" duration="1359000" />
     </task>
     <task id="LOCAL-00001" summary="+Navbar revamp&#10;+Navbar CSS revamp&#10;+Global Button Component&#10;+Navbar now works when window is resized&#10;+Log out/in button moved to Navbar">
       <created>1680729870708</created>
@@ -192,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683322401225</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="+Css report Successful/Warning fixed">
+      <created>1683397346196</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683397346196</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +240,8 @@
     <MESSAGE value="+Make a report css fixed once again" />
     <MESSAGE value="+Css bug fix for login and make a report" />
     <MESSAGE value="+Css for Profile updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="+Css for Profile updated" />
+    <MESSAGE value="+Css report Successful/Warning fixed" />
+    <MESSAGE value="+Bug fix for report alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="+Bug fix for report alert" />
   </component>
 </project>

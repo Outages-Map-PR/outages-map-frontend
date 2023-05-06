@@ -166,10 +166,17 @@ function Report() {
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <h3 id="h3-report" style={{ color: 'green' }}>Report successfully created.</h3>
-                        <button id="close-btn" onClick={handleCloseS}>Close</button>
+                        <div className="report-div">
+                            <h3 id="h3-report" style={{ color: 'green' }}>Report successfully created.</h3>
+                            <div className="btn-div">
+                                <button id="close-btn" onClick={handleCloseS}>Close</button>
+                            </div>
+
+                        </div>
+
                     </Box>
                 </Modal>
+
                 <Modal
                     open={failedReport}
                     onClose={handleCloseF}
@@ -180,8 +187,14 @@ function Report() {
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <h3 id="h3-report" style={{ color: 'red' }}>Please ensure all fields are filled.</h3>
-                        <button id="close-btn" onClick={handleCloseF}>Close</button>
+                        <div className="report-div">
+                            <h3 id="h3-report" style={{ color: 'red' }}>Please ensure all fields are filled.</h3>
+                           <div className="btn-div">
+                               <button id="close-btn" onClick={handleCloseF}>Close</button>
+                           </div>
+
+                        </div>
+
                     </Box>
                 </Modal>
             </div>

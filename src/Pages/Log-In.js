@@ -17,10 +17,6 @@ const LogIn = () => {
     const [showSignUp, setShowSignUp] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const navigate = useNavigate()
-    const [successfulLogin, setSuccessfulLogin] = useState(false)
-    const [failedLogin, setFailedLogin] = useState(false)
-    const handleCloseS = () => setSuccessfulLogin(false);
-    const handleCloseF = () => setFailedLogin(false);
 
 
     const handleSubmit = async e => {
@@ -47,15 +43,13 @@ const LogIn = () => {
                 setUser(response.data)  //user id gets generated
                 //console.log(user)
                 localStorage.setItem('user', response.data) //cookie
-                // alert("Log-in successful.")
-                setSuccessfulLogin(true)
+                alert("Log-in successful.")
                 window.location.reload(false)
             })
             .catch(function (error) {
                 console.error(error);
                 setUser("0");
-                // alert("Please try again.")
-                setFailedLogin(true)
+                alert("Please try again.")
                 navigate('/login')
             });
         navigate('/')
@@ -161,35 +155,6 @@ const LogIn = () => {
                 }} >
             <SignUpForm close={signupOpenClose}/>
         </Modal>
-
-            <Modal
-                open={successfulLogin}
-                onClose={handleCloseS}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box className="report-success" sx={
-                    {padding: '10px',
-                        backgroundColor: 'whitesmoke',
-                        maxWidth: '30vw'}}>
-                    <h3 id="h3-report" style={{ color: 'green' }}>Login Successful!</h3>
-                    <button id="close-btn" onClick={handleCloseS}>Close</button>
-                </Box>
-            </Modal>
-            <Modal
-                open={failedLogin}
-                onClose={handleCloseF}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box className="report-warning" sx={
-                    {padding: '10px',
-                        backgroundColor: 'whitesmoke',
-                        maxWidth: '30vw'}}>
-                    <h3 id="h3-report" style={{ color: 'red' }}>Please try again.</h3>
-                    <button id="close-btn" onClick={handleCloseF}>Close</button>
-                </Box>
-            </Modal>
         </>
     );
 };

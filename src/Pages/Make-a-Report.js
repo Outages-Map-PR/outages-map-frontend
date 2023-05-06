@@ -54,10 +54,10 @@ function Report() {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        if(type === "" || address === "" || company === ""){
-            setFailedReport(true)
-            return
-        }
+        // if(type === "" || address === "" || company === ""){
+        //     setFailedReport(true)
+        //     return
+        // }
 
         axios
             .post(
@@ -78,9 +78,10 @@ function Report() {
             )
             .then(function (response) {
                 //console.log(response.data)
-                setSuccessfulReport(true)
+                alert("Report sent sucessfully")
             })
             .catch(function (error) {
+                alert("Please fill out all needed information to make a report.")
                 console.error(error);
 
             });

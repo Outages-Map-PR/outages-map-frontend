@@ -152,7 +152,7 @@ padding-top: 20px;
 
 @media screen and (max-width: 960px) {
     .report-form{
-        height: 60vh;
+        height: 65vh;
         width: 80vw;
         background: #F7F7F7;
         padding: 2em;

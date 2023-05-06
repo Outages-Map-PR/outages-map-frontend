@@ -166,7 +166,7 @@ function Report() {
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <div className="report-div">
+                        <div className="report-warning-div">
                             <h3 id="h3-report" style={{ color: 'green' }}>Report successfully created.</h3>
                             <div className="btn-div">
                                 <button id="close-btn" onClick={handleCloseS}>Close</button>
@@ -187,7 +187,7 @@ function Report() {
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <div className="report-div">
+                        <div className="report-warning-div">
                             <h3 id="h3-report" style={{ color: 'red' }}>Please ensure all fields are filled.</h3>
                            <div className="btn-div">
                                <button id="close-btn" onClick={handleCloseF}>Close</button>

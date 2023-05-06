@@ -47,15 +47,15 @@ const LogIn = () => {
                 setUser(response.data)  //user id gets generated
                 //console.log(user)
                 localStorage.setItem('user', response.data) //cookie
-                alert("Log-in successful.")
-                // setSuccessfulLogin(true)
+                // alert("Log-in successful.")
+                setSuccessfulLogin(true)
                 window.location.reload(false)
             })
             .catch(function (error) {
                 console.error(error);
                 setUser("0");
-                alert("Please try again.")
-                // setFailedLogin(true)
+                // alert("Please try again.")
+                setFailedLogin(true)
                 navigate('/login')
             });
         navigate('/')
@@ -172,7 +172,7 @@ const LogIn = () => {
                     {padding: '10px',
                         backgroundColor: 'whitesmoke',
                         maxWidth: '30vw'}}>
-                    <h3 id="h3-report" style={{ color: 'green' }}>Report successfully created.</h3>
+                    <h3 id="h3-report" style={{ color: 'green' }}>Login Successful!</h3>
                     <button id="close-btn" onClick={handleCloseS}>Close</button>
                 </Box>
             </Modal>
@@ -186,7 +186,7 @@ const LogIn = () => {
                     {padding: '10px',
                         backgroundColor: 'whitesmoke',
                         maxWidth: '30vw'}}>
-                    <h3 id="h3-report" style={{ color: 'red' }}>Please ensure all fields are filled.</h3>
+                    <h3 id="h3-report" style={{ color: 'red' }}>Please try again.</h3>
                     <button id="close-btn" onClick={handleCloseF}>Close</button>
                 </Box>
             </Modal>

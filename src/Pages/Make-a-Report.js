@@ -162,12 +162,12 @@ function Report() {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={
+                    <Box className="report-success" sx={
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <h3 style={{ color: 'green' }}>Report successfully created.</h3>
-                        <button onClick={handleCloseS}>Close</button>
+                        <h3 id="h3-report" style={{ color: 'green' }}>Report successfully created.</h3>
+                        <button id="close-btn" onClick={handleCloseS}>Close</button>
                     </Box>
                 </Modal>
                 <Modal
@@ -176,12 +176,12 @@ function Report() {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={
+                    <Box className="report-warning" sx={
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <h3 style={{ color: 'green' }}>Please ensure all fields are filled.</h3>
-                        <button onClick={handleCloseF}>Close</button>
+                        <h3 id="h3-report" style={{ color: 'red' }}>Please ensure all fields are filled.</h3>
+                        <button id="close-btn" onClick={handleCloseF}>Close</button>
                     </Box>
                 </Modal>
             </div>

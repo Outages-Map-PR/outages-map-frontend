@@ -11,25 +11,26 @@ import {
   Stack,
   TextField,
   Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import axios from "axios";
-import { json } from "react-router-dom";
-import { Check, CheckBox } from "@mui/icons-material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { IconBase } from "react-icons";
+} from "@mui/material"
+import React, { useState } from "react"
+import axios from "axios"
+import {Navigate, json, useNavigate} from "react-router-dom"
+import { Check, CheckBox } from "@mui/icons-material"
+import VisibilityIcon from "@mui/icons-material/Visibility"
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
+import { IconBase } from "react-icons"
 
 const SignUpForm = ({ close }) => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [successSignUp, setSuccessSignUp] = useState(false);
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [passwordsMatch, setPasswordsMatch] = useState(true)
+  const [successSignUp, setSuccessSignUp] = useState(false)
+  const navigate = useNavigate()
 
   const dbUrl = "https://outages-db.herokuapp.com/";
   const userApi = dbUrl + "API/user";
@@ -55,33 +56,31 @@ const SignUpForm = ({ close }) => {
       user_phone: phone,
     });
 
-    fetch(userApi, {
-      method: "POST",
+    axios({
+      method: 'POST',
+      url: userApi,
       headers: { "Content-Type": "application/json" },
-      body: userData,
+      data: userData
     })
-      .then(() => {
-        setSuccessSignUp(true);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+    .then((res) => {
+      alert("Account made successfully")
+      localStorage.setItem('user', res.data)
+      closeForm()
+    })
+    .catch((e) => {
+      console.log(e);
+      alert("Something has gone wrong.")
+    })
+  }
 
   const closeForm = () => {
-    close();
-  };
+    close()
+    navigate('/')
+    window.location.reload(true)
+  }
 
   return (
     <>
-      {successSignUp ? (
-        <Box sx={{ padding: "10px", backgroundColor: "whitesmoke", width: "25vw", borderRadius: '3px', display: 'flex', justifyContent: 'center'}}>
-          <Stack direction={'column'}>
-            <Typography >Account created.</Typography>
-            <Button variant="contained" onClick={closeForm} sx={{backgroundColor: "#773deb", marginBottom:"10px", ":hover": {backgroundColor: "#572dab"}, marginTop: '10px'}} size="small">Close</Button>
-          </Stack>
-        </Box>
-      ) : (
       <Box
         sx={{ padding: "10px", 
             backgroundColor: "whitesmoke", 
@@ -201,7 +200,6 @@ const SignUpForm = ({ close }) => {
           <Button variant="outlined" onClick={closeForm}>Cancel</Button>
         </Stack>
       </Box>
-      )}
     </>
   );
 };

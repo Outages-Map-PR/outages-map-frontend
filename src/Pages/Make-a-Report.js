@@ -148,7 +148,7 @@ function Report() {
 
                                     <div className="footer">
                                         <div>
-                                            <button className="submit-btn" type="submit">Make a Report</button>
+                                            <button id="button_sub" className="submit-btn" type="submit">Make a Report</button>
                                         </div>
                                     </div>
 

@@ -145,7 +145,7 @@ function RecentReports() {
       </ToggleButtonGroup>
       <Box
         boxShadow={7}
-        sx={{
+        sx={{overflow:"auto",
           border: "1px solid grey",
           borderRadius: "3px",
           marginTop: "20px",

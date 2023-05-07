@@ -178,6 +178,7 @@ function RecentReports() {
         <Box
           boxShadow={7}
           sx={{
+              overflow:"auto",
             border: "1px solid grey",
             borderRadius: "3px",
             marginTop: "20px",

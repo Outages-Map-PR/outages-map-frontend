@@ -43,13 +43,13 @@ const LogIn = () => {
                 setUser(response.data)  //user id gets generated
                 //console.log(user)
                 localStorage.setItem('user', response.data) //cookie
-                alert("Log-in successful")
+                alert("Log-in successful.")
                 window.location.reload(false)
             })
             .catch(function (error) {
                 console.error(error);
                 setUser("0");
-                alert("Please try again")
+                alert("Please try again.")
                 navigate('/login')
             });
         navigate('/')

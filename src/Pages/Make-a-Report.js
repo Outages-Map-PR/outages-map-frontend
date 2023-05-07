@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Box, Modal} from "@mui/material";
+import "../Pages/Css/Make-report.css";
 
 
 function Report() {
@@ -53,10 +54,10 @@ function Report() {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        if(type === "" || address === "" || company === ""){
-            setFailedReport(true)
-            return
-        }
+        // if(type === "" || address === "" || company === ""){
+        //     setFailedReport(true)
+        //     return
+        // }
 
         axios
             .post(
@@ -77,9 +78,10 @@ function Report() {
             )
             .then(function (response) {
                 //console.log(response.data)
-                setSuccessfulReport(true)
+                alert("Report sent sucessfully")
             })
             .catch(function (error) {
+                alert("Please fill out all needed information to make a report.")
                 console.error(error);
 
             });
@@ -95,19 +97,19 @@ function Report() {
                 || (user !== "0" &&
                         <div className="report-container">
                             <div className="report-form">
-                                <h1 id="report"> Make a Report</h1>
-                                <form className="form" onSubmit={handleSubmit}>
-
+                                <h1 id="report">Make a Report</h1>
+                                <p>Report helps us keep everyone notified of possible outages once they been verified!</p>
+                                <form className="report-div" onSubmit={handleSubmit}>
                                     <div className="address">
                                         <div className= "address-div1">
-                                            <label onClick="address-label" htmlFor="address">Address: </label>
+                                            <label onClick="address-label" htmlFor="address">Address </label>
                                         </div>
                                         <div className="address-div2">
                                             <input
                                                 id = "address"
                                                 type="address"
                                                 value={address}
-                                                placeholder="Enter your address"
+                                                placeholder="Enter address of outage"
                                                 onChange={({ target }) => setAddress(target.value)}
                                             />
                                         </div>
@@ -115,7 +117,8 @@ function Report() {
 
                                     <div className="outage-type">
                                         <div className="outage-type-div1">
-                                            <label htmlFor="type">Type: </label>
+                                            <label htmlFor="type">Type </label>
+                                            <p className="outage-descrip">Select the type of outage you wish to report.</p>
                                         </div>
                                         <div className="outage-type-div2">
                                             <select id="type" name="type" size="3"
@@ -160,26 +163,39 @@ function Report() {
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={
+                    <Box className="report-success" sx={
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <h3 style={{ color: 'green' }}>Report successfully created.</h3>
-                        <button onClick={handleCloseS}>Close</button>
+                        <div className="report-warning-div">
+                            <h3 id="h3-report" style={{ color: 'green' }}>Report successfully created.</h3>
+                            <div className="btn-div">
+                                <button id="close-btn" onClick={handleCloseS}>Close</button>
+                            </div>
+
+                        </div>
+
                     </Box>
                 </Modal>
+
                 <Modal
                     open={failedReport}
                     onClose={handleCloseF}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box sx={
+                    <Box className="report-warning" sx={
                         {padding: '10px',
                             backgroundColor: 'whitesmoke',
                             maxWidth: '30vw'}}>
-                        <h3 style={{ color: 'green' }}>Please ensure all fields are filled.</h3>
-                        <button onClick={handleCloseF}>Close</button>
+                        <div className="report-warning-div">
+                            <h3 id="h3-report" style={{ color: 'red' }}>Please ensure all fields are filled.</h3>
+                           <div className="btn-div">
+                               <button id="close-btn" onClick={handleCloseF}>Close</button>
+                           </div>
+
+                        </div>
+
                     </Box>
                 </Modal>
             </div>

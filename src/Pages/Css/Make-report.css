@@ -1,41 +1,214 @@
 .report-container{
-
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .report-form{
+    height: 70vh;
+    width: 80vw;
+    background: #F7F7F7;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 0 0 2em lightgray;
+    gap: 3em;
+}
+
+h1 {
+    position: relative;
+    /*padding-bottom: 10px;*/
 
 }
 
-.form{
+p{
+    position: relative;
+    top: -9%;
 
 }
+
+/*.report-div{*/
+
+/*}*/
 
 .address{
-
+    position: relative;
+    padding: 10px;
+    top: -25%;
+    color: #7345FE;
+    background-color: white;
+    border-radius: 10px;
 }
 
-input{
+#address, #company{
     outline:none;
     border: none;
     border-radius: 20px;
+    font-size: 16px;
+    width: 40vw;
 }
 
 .outage-type{
+    position: relative;
+    padding: 10px;
+    top: -20%;
+    color: #7345FE;
+    background-color: white;
+    border-radius: 10px;
+}
 
+.outage-descrip{
+    padding: 5px;
+    font-size: small;
+    color: black;
+}
+
+select{
+    outline: none;
+    border: none;
+    overflow-y: hidden;
+    padding-left: 5px;
+    padding-top: 4px;
+    font-size: 16px;
+    width: 30vw;
+}
+
+option{
+    padding: 2px;
+    margin: 2px;
+}
+option:hover{
+    color: #7345FE;
+    cursor: pointer;
+}
+
+option:checked{
+    background-color: lightgray;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
 }
 
 .company{
-
+    position: relative;
+    padding: 10px;
+    top: -10%;
+    color: #7345FE;
+    background-color: white;
+    border-radius: 10px;
 }
 
-.signup-btn{
-    color: black;
-    background-color: #F7F7F7;
+.submit-btn, #close-btn{
+    left:50%;
+    padding: 1em;
+    background:#7345FE;
+    color: white;
     border: none;
+    border-radius: 5px;
+    font-weight: 600;
     cursor: pointer;
+}
+
+#close-btn{
+    position: relative;
+    left: 10%;
+}
+
+.btn-div{
+padding-top: 20px;
+}
+
+.submit-btn:hover, #close-btn:hover{
+    text-decoration: underline;
+}
+
+.report-success, .report-warning{
+    max-width: 60vw !important;
+    max-height: 30vh !important;
+    height: 150px;
+    padding: 0 !important;
+    position: relative;
+    top: 40%;
+    left: 20%;
+    border-radius: 5px;
 
 }
 
-.signup-btn:hover{
-    text-decoration: underline;
+#h3-report {
+    position: relative;
+    left: 10%;
+    top: 20%;
+    width: 400px;
+    color: #7345FE !important;
+}
+
+.report-warning-div{
+    position: relative;
+    top: 20%;
+}
+
+
+@media screen and (max-width: 960px) {
+    .report-form{
+        height: 65vh;
+        width: 80vw;
+        background: #F7F7F7;
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        box-shadow: 0 0 2em lightgray;
+        gap: 3em;
+    }
+
+    #h3-report {
+        position: relative;
+        left: 10%;
+        top: 20%;
+        width: 400px;
+        font-size: 3vw;
+
+    }
+}
+
+
+
+
+@media screen and (max-width: 960px) {
+    .report-form {
+        height: 70vh;
+    }
+}
+
+@media screen and (max-width: 823px) {
+    .report-form {
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .report-form {
+        height: 80vh;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .report-form {
+        height: 85vh;
+    }
+}
+
+@media screen and (max-width: 310px) {
+    .report-form {
+        height: 90vh;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .report-form {
+        height: 95vh;
+    }
+
 }

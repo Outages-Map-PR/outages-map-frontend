@@ -90,7 +90,7 @@ function Profile() {
                             <hr/>
                             <div className="logged-reports-div">
                                 <h3 className="logged-in-h3"><b>Reports Made</b></h3>
-                                <span>{numberReports}</span>
+                                <span className="report-nums">{numberReports}</span>
                             </div>
                         </div>
                         <Button className="see-reports" variant="contained" onClick={handleShowMyReports}>See my Reports</Button>

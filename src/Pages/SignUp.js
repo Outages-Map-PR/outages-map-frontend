@@ -42,6 +42,11 @@ const SignUpForm = ({ close }) => {
       setPasswordsMatch(true);
     }
 
+    if (username === "" || email === "" || phone === "" || password === "" || confirmPassword === "") {
+      alert("Please fill out all fields.")
+      return
+    }
+
     let userData = JSON.stringify({
       user_email: email,
       user_password: password,

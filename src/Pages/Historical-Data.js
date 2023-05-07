@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react"
 import {
   ToggleButton,
   ToggleButtonGroup,
@@ -10,33 +10,34 @@ import {
   TablePagination,
   Box,
   Stack,
-} from "@mui/material";
-import axios from "axios";
+} from "@mui/material"
+import axios from "axios"
+import { Navigate } from "react-router-dom"
 
 // DEFINITIONS
-const ALL = "all";
-const POWER = "power";
-const WATER = "water";
-const INTERNET = "internet";
+const ALL = "all"
+const POWER = "power"
+const WATER = "water"
+const INTERNET = "internet"
 
 function RecentReports() {
-  const [user, setUser] = useState("0");
-  const [outages, setOutages] = useState([]);
-  const [currentOutages, setCurrentOutages] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(ALL);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(15);
+  const [user, setUser] = useState("0")
+  const [outages, setOutages] = useState([])
+  const [currentOutages, setCurrentOutages] = useState([])
+  const [selectedItem, setSelectedItem] = useState(ALL)
+  const [page, setPage] = useState(0)
+  const [rowsPerPage, setRowsPerPage] = useState(15)
 
-  const indexOfLastItem = (page + 1) * rowsPerPage;
-  const indexOfFirstItem = indexOfLastItem - rowsPerPage;
-  const currentItems = currentOutages.slice(indexOfFirstItem, indexOfLastItem);
+  const indexOfLastItem = (page + 1) * rowsPerPage
+  const indexOfFirstItem = indexOfLastItem - rowsPerPage
+  const currentItems = currentOutages.slice(indexOfFirstItem, indexOfLastItem)
 
   useEffect(() => {
-    const loggedInUser = localStorage.getItem("user");
+    const loggedInUser = localStorage.getItem("user")
     if (loggedInUser) {
-      setUser(loggedInUser);
+      setUser(loggedInUser)
     } else {
-      setUser("0");
+      setUser("0")
     }
     axios
       .patch("https://outages-db.herokuapp.com/API/outagesmap")
@@ -45,32 +46,33 @@ function RecentReports() {
         setCurrentOutages(response.data);
       })
       .catch(function (error) {
-        console.error(error);
-      });
-  }, []);
+        console.error(error)
+      })
+  }, [])
 
   const handleSelect = (event, newItem) => {
     if (newItem) {
-      let currOut = [];
+      let currOut = []
       for (let x = 0; x < outages.length; x++) {
         if (outages[x].outage_type === newItem || newItem === ALL) {
-          currOut.push(outages[x]);
+          currOut.push(outages[x])
         }
       }
-      setSelectedItem(newItem);
-      setCurrentOutages(currOut);
+      setSelectedItem(newItem)
+      setCurrentOutages(currOut)
       setPage(0);
     }
-  };
+  }
 
   const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
+    setPage(newPage)
+    window.location.href = "/historical-data#top"
+  }
 
   const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+    setRowsPerPage(parseInt(event.target.value, 10))
+    setPage(0)
+  }
 
   return (
     <Box sx={{ margin: "50px" }}>
@@ -180,6 +182,7 @@ function RecentReports() {
             borderRadius: "3px",
             marginTop: "20px",
           }}
+          overflow={'auto'}
         >
           <Table>
             <TableHead sx={{ backgroundColor: "#DEDEE7" }}>
@@ -248,12 +251,12 @@ function RecentReports() {
 
         <TablePagination
           rowsPerPageOptions={[15, 25, 50]}
-          component="div"
           count={currentOutages.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
+          size="small"
         />
     </Box>
   );

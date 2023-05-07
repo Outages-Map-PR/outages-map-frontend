@@ -11,25 +11,25 @@ import {
   Stack,
   TextField,
   Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import axios from "axios";
-import {json, useNavigate} from "react-router-dom";
-import { Check, CheckBox } from "@mui/icons-material";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { IconBase } from "react-icons";
+} from "@mui/material"
+import React, { useState } from "react"
+import axios from "axios"
+import {Navigate, json, useNavigate} from "react-router-dom"
+import { Check, CheckBox } from "@mui/icons-material"
+import VisibilityIcon from "@mui/icons-material/Visibility"
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff"
+import { IconBase } from "react-icons"
 
 const SignUpForm = ({ close }) => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [passwordsMatch, setPasswordsMatch] = useState(true);
-  const [successSignUp, setSuccessSignUp] = useState(false);
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [passwordsMatch, setPasswordsMatch] = useState(true)
+  const [successSignUp, setSuccessSignUp] = useState(false)
   const navigate = useNavigate()
 
   const dbUrl = "https://outages-db.herokuapp.com/";
@@ -56,27 +56,28 @@ const SignUpForm = ({ close }) => {
       user_phone: phone,
     });
 
-    fetch(userApi, {
-      method: "POST",
+    axios({
+      method: 'POST',
+      url: userApi,
       headers: { "Content-Type": "application/json" },
-      body: userData,
+      data: userData
     })
-      .then((response) => {
-        alert("Account made successfully")
-        localStorage.setItem('user', response.data)
-        closeForm()
-        navigate('/')
-
-      })
-      .catch((e) => {
-        console.log(e);
-        alert("Something has gone wrong.")
-      });
-  };
+    .then((res) => {
+      alert("Account made successfully")
+      localStorage.setItem('user', res.data)
+      closeForm()
+    })
+    .catch((e) => {
+      console.log(e);
+      alert("Something has gone wrong.")
+    })
+  }
 
   const closeForm = () => {
-    close();
-  };
+    close()
+    navigate('/')
+    window.location.reload(true)
+  }
 
   return (
     <>

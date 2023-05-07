@@ -9,7 +9,7 @@
 }
 
 .form{
-    height: 70vh;
+    height: 50vh;
     width: 30vw;
     background: #F7F7F7;
     padding: 2em;
@@ -120,14 +120,57 @@
 
 }
 
-@media screen and (max-width: 960px) {
-    .form {
-        height: 65vh;
-        width: 80vw;
+@media screen and (max-width: 1250px) {
+    .form{
+        height: 55vh;
+        width: 30vw;
     }
 
     input{
-        width: 49vw;
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .form{
+        height: 60vh;
+        width: 30vw;
+    }
+
+    input{
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .form {
+        height: 55vh;
+        width: 50vw;
+    }
+
+    input{
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form{
+        height: 55vh;
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form{
+        height: 55vh;
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .form{
+        height: 60vh;
+        width: 80vw;
     }
 }
 

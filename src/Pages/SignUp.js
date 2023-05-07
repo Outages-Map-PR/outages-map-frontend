@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import axios from "axios";
-import { json } from "react-router-dom";
+import {json, useNavigate} from "react-router-dom";
 import { Check, CheckBox } from "@mui/icons-material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -30,6 +30,7 @@ const SignUpForm = ({ close }) => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [successSignUp, setSuccessSignUp] = useState(false);
+  const navigate = useNavigate()
 
   const dbUrl = "https://outages-db.herokuapp.com/";
   const userApi = dbUrl + "API/user";
@@ -60,11 +61,16 @@ const SignUpForm = ({ close }) => {
       headers: { "Content-Type": "application/json" },
       body: userData,
     })
-      .then(() => {
-        setSuccessSignUp(true);
+      .then((response) => {
+        alert("Account made successfully")
+        localStorage.setItem('user', response.data)
+        closeForm()
+        navigate('/')
+
       })
       .catch((e) => {
         console.log(e);
+        alert("Something has gone wrong.")
       });
   };
 
@@ -74,14 +80,6 @@ const SignUpForm = ({ close }) => {
 
   return (
     <>
-      {successSignUp ? (
-        <Box sx={{ padding: "10px", backgroundColor: "whitesmoke", width: "25vw", borderRadius: '3px', display: 'flex', justifyContent: 'center'}}>
-          <Stack direction={'column'}>
-            <Typography >Account created.</Typography>
-            <Button variant="contained" onClick={closeForm} sx={{backgroundColor: "#773deb", marginBottom:"10px", ":hover": {backgroundColor: "#572dab"}, marginTop: '10px'}} size="small">Close</Button>
-          </Stack>
-        </Box>
-      ) : (
       <Box
         sx={{ padding: "10px", 
             backgroundColor: "whitesmoke", 
@@ -201,7 +199,6 @@ const SignUpForm = ({ close }) => {
           <Button variant="outlined" onClick={closeForm}>Cancel</Button>
         </Stack>
       </Box>
-      )}
     </>
   );
 };

@@ -82,18 +82,18 @@ const SignUpForm = ({ close }) => {
   return (
     <>
       <Box
-        sx={{ padding: "10px", 
+        sx={{
             backgroundColor: "whitesmoke", 
-            borderRadius: '3px', 
+            borderRadius: '10px',
             padding: '20px',
             maxWidth: '400px',
-            maxHeight: '60vh'    
+            maxHeight: '55vh'
             }} overflow={'auto'}
       >
         <Stack direction={"column"} sx={{marginTop:"20px", marginLeft:"10px", marginRight:"10px", marginBottom:"20px"}}>
           <h2 style={{ marginBottom: "5px" }}>Let's sign you up!</h2>
           <h5 style={{ marginBottom: "20px", color: "grey" }}>
-            Welcome to the app
+            Welcome to Outages PR
           </h5>
 
           <TextField
